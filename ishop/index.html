@@ -24,18 +24,10 @@
         {name:'Блюдо3',code:3,pict:'berries-1869421_1920.jpg', rest:333,}, 
         {name:'Блюдо4',code:4,pict:'blueberries-919029_640 (1).jpg', rest:444,} 
       ];
-      const Company = React.createClass({
-        propTypes: {
-        companyName: React.PropTypes.string.isRequired,
-        companyClients: React.PropTypes.array,
-        },
-
-        });
-
-      ReactDOM.render(
-        React.createElement(VotesBlock,{question:questionText,answers:answersArr}), 
-        document.getElementById('container') 
-      );
+        ReactDOM.render(
+          React.createElement(Ishop,{companyName:nameShop,companyGoods:goodsArr}), 
+          document.getElementById('container') 
+        );
   
     </script>
       

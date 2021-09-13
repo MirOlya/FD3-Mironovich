@@ -1,0 +1,23 @@
+.Ishop{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Ishop .Npp .Pict{
+    width: 100px;
+    height: 100px;
+}
+.Ishop>.Company{
+    size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+.Ishop>.Goods{
+    border-style: double;
+    border-color: green;
+}
+
+.Ishop .Npp{
+    border-bottom: black;
+}
