@@ -21,3 +21,8 @@
 .Ishop .Npp{
     border-bottom: black;
 }
+.Ishop .Heading{
+    background-color:green;
+    /* border-right:3px double green;
+    border-left:3px double green; */
+}
