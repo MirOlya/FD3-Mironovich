@@ -12,14 +12,12 @@ const Ishop = React.createClass({
     },
     render: function () {
         const arrGoods = new Array;
+        arrGoods.push(React.DOM.tr({key:0,className:'Heading'},
+        React.DOM.th({className:'Head'},"Товар"),
+        React.DOM.th({className:'Head'},"Изображение"),
+        React.DOM.th({className:'Head'},"Остаток"),
+        ));
         this.props.companyGoods.forEach((el,i)=>{
-            if(i===0){
-                arrGoods.push(React.DOM.tr({className:'Heading'},
-                React.DOM.th({className:'Head'},"Товар"),
-                React.DOM.th({className:'Head'},"Изображение"),
-                React.DOM.th({className:'Head'},"Остаток"),
-            ))
-            };
             arrGoods.push(React.DOM.tr({key:el.code,className:'Npp'},
                 React.DOM.td({className:'NameGood'},el.name),
                 React.DOM.td({},
