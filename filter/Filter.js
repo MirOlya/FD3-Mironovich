@@ -18,7 +18,7 @@ const Filter = React.createClass({
 
       recallList: function(){
         this.setState((prevState, props) => {
-            const a = this.state.findStr===''?props.list.join('/').split('/'):props.list.join('/').split('/').filter((el)=>{console.log(el.indexOf(this.state.findStr));return el.indexOf(this.state.findStr)!=-1?true:false});
+            const a = this.state.findStr===''?props.list.join('/').split('/'):props.list.join('/').split('/').filter((el)=>{return el.indexOf(this.state.findStr)!=-1?true:false});
             const b = prevState.isSort?a.sort():a;
             return {workList:b}
         }) 
