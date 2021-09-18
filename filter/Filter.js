@@ -16,37 +16,31 @@ const Filter = React.createClass({
         };
       },
 
-      recallList: function(){
-        this.setState((prevState, props) => {
-            const a = this.state.findStr===''?props.list.join('/').split('/'):props.list.join('/').split('/').filter((el)=>{return el.indexOf(this.state.findStr)!=-1?true:false});
-            const b = prevState.isSort?a.sort():a;
-            return {workList:b}
-        }) 
-      },
-      
       chekSort: function() {
-        this.setState(prevState => {return {
-            isSort:!prevState.isSort
-            };} );
-        this.recallList();
+        this.setState((prevState, props) => {
+          const a = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
+          const b = !prevState.isSort?a.sort():a;
+          return {workList:b,isSort:!prevState.isSort};}
+        );
         },
 
       discard: function() {
-        console.log('Все вернули назад');
-        this.setState(()=>{return {isSort:false,findStr:''}});
-        this.recallList();
+        this.setState((prevState, props) => {
+          const b = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
+          return {workList:b,isSort:false,findStr:''};}
+        );
       },
 
       findList: function(EO){
         const s = EO.target.value;
-        this.setState({findStr:s});
-        this.recallList();
-      },
+        this.setState((prevState, props) => {
+          const a = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
+          const b = prevState.isSort?a.sort():a;
+          return {workList:b,findStr:s}
+      }) 
+    },
     
       render: function () {
-        // console.log("1 = "+this.state.workList);          
-        // console.log("2 = "+this.props.list);          
-
         const arrList = this.state.workList.map((el,v) => {
             return React.DOM.option({key:v},el)
         });
