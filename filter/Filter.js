@@ -34,7 +34,7 @@ const Filter = React.createClass({
       findList: function(EO){
         const s = EO.target.value;
         this.setState((prevState, props) => {
-          const a = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
+          const a = s===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
           const b = prevState.isSort?a.sort():a;
           return {workList:b,findStr:s}
       }) 
@@ -53,7 +53,7 @@ const Filter = React.createClass({
              React.DOM.input({type:'input',className:'findStr',onChange:this.findList,value:this.state.findStr}),
              React.DOM.input( {type:'button',value:'сброс',onClick:this.discard} ),
         ),
-        React.DOM.select({className:'listSting',size:3}, arrList),
+        React.DOM.select({className:'listSting',size:6}, arrList),
         );
     },
     }

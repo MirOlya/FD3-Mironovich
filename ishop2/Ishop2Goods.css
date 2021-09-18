@@ -1,0 +1,16 @@
+.Ishop .Npp .Pict{
+    width: 100px;
+    height: 100px;
+}
+.Ishop>.Goods{
+    border-style: double;
+    border-color: green;
+}
+
+.Ishop .Npp{
+    border-bottom: black;
+    background-color:chartreuse;
+}
+.Ishop .SelGood{
+    background-color:brown;
+}
