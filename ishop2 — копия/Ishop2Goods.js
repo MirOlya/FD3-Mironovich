@@ -27,12 +27,12 @@ const Ishop2Goods = React.createClass({
     selStr: function(){
         // this.setState((prevState)=>{return {cbIsSelect:this.props.code}});
         // console.log(this.props.code);
-        console.log('Выбрали новую строку - '+this.props.code); 
+        console.log('VotesAnswer: текст свободного ответа изменён - '+this.props.code); 
         this.props.cbSelected(this.props.code);
         },
     render: function () {
         // 
-        console.log(this.props.code +' = '+this.props.isSelected);
+        console.log(' = '+this.props.isSelected);
         return !this.state.IsDelete?React.DOM.tr({key:this.props.code,className:this.props.isSelected?'Npp SelGood':'Npp'},
             React.DOM.td({className:'NameGood',onClick:this.selStr},this.props.name),
             React.DOM.td({onClick:this.selStr},

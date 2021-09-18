@@ -4,13 +4,13 @@
 }
 .Ishop>.Goods{
     border-style: double;
-    border-color: red;
+    border-color: green;
 }
 
 .Ishop .Npp{
     border-bottom: black;
-    background-color:yellow;
+    background-color:chartreuse;
 }
 .Ishop .SelGood{
-    background-color:red;
+    background-color:brown;
 }
