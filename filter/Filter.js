@@ -11,22 +11,25 @@ const Filter = React.createClass({
     getInitialState:function () {
         return {
           isSort: false,
-          workList: this.props.list.join('/').split('/'),
+          workList: this.props.list.slice(),
           findStr:'',
         };
       },
 
-      chekSort: function() {
+      chekSort: function(EO) {
         this.setState((prevState, props) => {
-          const a = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
-          const b = !prevState.isSort?a.sort():a;
-          return {workList:b,isSort:!prevState.isSort};}
+          console.log(EO.persist());
+          const s = this.state.findStr;
+          const a = s===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)>-1});
+          if(!prevState.isSort)
+            a.sort();
+          return {workList:a,isSort:!prevState.isSort};}
         );
         },
 
       discard: function() {
         this.setState((prevState, props) => {
-          const b = this.state.findStr===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
+          const b = props.list.slice();
           return {workList:b,isSort:false,findStr:''};}
         );
       },
@@ -34,9 +37,10 @@ const Filter = React.createClass({
       findList: function(EO){
         const s = EO.target.value;
         this.setState((prevState, props) => {
-          const a = s===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)!=-1?true:false});
-          const b = prevState.isSort?a.sort():a;
-          return {workList:b,findStr:s}
+          const a = s===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)>-1});
+          if(this.state.isSort)
+            a.sort();
+          return {workList:a,findStr:s}
       }) 
     },
     
