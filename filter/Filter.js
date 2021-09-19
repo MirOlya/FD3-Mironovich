@@ -17,13 +17,13 @@ const Filter = React.createClass({
       },
 
       chekSort: function(EO) {
+        const sEO = EO.target.checked;
         this.setState((prevState, props) => {
-          console.log(EO.persist());
           const s = this.state.findStr;
           const a = s===''?props.list.slice():props.list.slice().filter((el)=>{return el.indexOf(s)>-1});
-          if(!prevState.isSort)
+          if(sEO)
             a.sort();
-          return {workList:a,isSort:!prevState.isSort};}
+          return {workList:a,isSort:sEO};}
         );
         },
 
