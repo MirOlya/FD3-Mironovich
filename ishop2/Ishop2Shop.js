@@ -8,7 +8,6 @@ const Ishop2 = React.createClass({
       },
     propTypes: {
         companyName: React.PropTypes.string.isRequired,
-        companyGoods: React.PropTypes.array,
         companyGoods:React.PropTypes.arrayOf(
             React.PropTypes.shape({
               code: React.PropTypes.number.isRequired,
@@ -20,19 +19,27 @@ const Ishop2 = React.createClass({
           },
     getInitialState: function() {
       return { 
-        selectedStrCode: null
+        selectedStrCode: null,
+        listGoods: this.props.companyGoods
       };
     },
-    answerSelected: function(code) {
+    strSelected: function(code) {
       console.log('выбрана строка с кодом '+code);
-      this.setState( {selectedStrCode:code} );
+      this.setState( {selectedStrCode:code});
     },
+    strDelected: function(code) {
+      console.log('удалена строка с кодом '+code);
+      const newListGoods = this.state.listGoods.filter(v=>v.code!=code)
+      this.setState( {listGoods:newListGoods});
+    },
+
     render: function () {
-        const arrGoods = this.props.companyGoods.map( v =>
+        const arrGoods = this.state.listGoods.map( v =>
             React.createElement(Ishop2Goods, {key:v.code,
                 name:v.name, pict:v.pict, rest:v.rest,code:v.code, 
                 isSelected:(this.state.selectedStrCode===v.code),
-                cbSelected:this.answerSelected,
+                cbSelected:this.strSelected,
+                cbDelected:this.strDelected,
               })
           );
         const headGoods = new Array(React.DOM.tr({key:0,className:'Heading'},
