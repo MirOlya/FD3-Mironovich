@@ -1,0 +1,16 @@
+.Ishop{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Ishop>.Company{
+    size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+.Ishop .Heading{
+    background-color:blue;
+    /* border-right:3px double green;
+    border-left:3px double green; */
+}
