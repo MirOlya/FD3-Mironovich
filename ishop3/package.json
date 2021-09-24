@@ -4,7 +4,9 @@
   "description": "ishop3",
   "main": "Ishop3Goods.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ".\\node_modules\\.bin\\webpack",
+    "start": ".\\node_modules\\.bin\\lite-server"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.53.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.8.0"
   }
 }
