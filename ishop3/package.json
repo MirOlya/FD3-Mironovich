@@ -1,35 +1,23 @@
 {
-  "name": "ishop3",
+  "name": "shop3",
   "version": "1.0.0",
-  "description": "ishop3",
-  "main": "Ishop3Goods.js",
+  "description": "shop3",
+  "main": "/App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": ".\\node_modules\\.bin\\webpack",
     "start": ".\\node_modules\\.bin\\lite-server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MirOlya/FD3-Mironovich.git"
-  },
-  "keywords": [
-    "ishop3"
-  ],
   "author": "Mironovich",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MirOlya/FD3-Mironovich/issues"
-  },
-  "homepage": "https://github.com/MirOlya/FD3-Mironovich#readme",
   "dependencies": {
-    "css-loader": "^6.3.0",
-    "lite-server": "^2.6.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "style-loader": "^3.3.0",
-    "webpack": "^5.53.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "webpack-cli": "^4.8.0"
+    "style-loader": "^3.3.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "css-loader": "^6.3.0",
+    "lite-server": "^2.6.1",
+    "webpack": "3.8.1"
   }
 }
