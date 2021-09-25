@@ -1,5 +1,9 @@
-const Ishop2Goods = React.createClass({
-    displayName: "Ishop2Goods",
+import React from 'react';
+
+import './Ishop3Goods.css';
+
+const Ishop3Goods = React.createClass({
+    displayName: "Ishop3Goods",
     getDefaultProps: function() {
         return { 
             code: 0,
@@ -8,11 +12,6 @@ const Ishop2Goods = React.createClass({
             rest: 0,
          }
       },
-    // getInitialState:function () {
-    //     return {
-    //     IsDelete: false
-    //     };
-    // },
     propTypes: {
         name: React.PropTypes.string,
         code: React.PropTypes.number,
@@ -44,4 +43,4 @@ const Ishop2Goods = React.createClass({
     }
  );
 
-
+ export default Ishop3Goods;

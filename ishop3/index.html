@@ -5,33 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ishop3</title>
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+</head> 
+<body> 
     <div id="container"></div> 
-      
-    <script src="https://unpkg.com/react@15/dist/react.js"></script> 
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> 
-        
-    <script src="Ishop3Shop.js"></script>
-    <link rel="stylesheet" type="text/css" href="Ishop3Shop.css" />
-    <script src="Ishop3Goods.js"></script>
-    <link rel="stylesheet" type="text/css" href="Ishop3Goods.css" />
-  
-    <script>
-  
-      const nameShop ='My shop';
-      const goodsArr=[ 
-        {name:'Блюдо1',code:1,pict:'asian-1238668_640.jpg', rest:111,}, 
-        {name:'Блюдо2',code:2,pict:'asparagus-2169305_1920.jpg', rest:222,}, 
-        {name:'Блюдо3',code:3,pict:'berries-1869421_1920.jpg', rest:333,}, 
-        {name:'Блюдо4',code:4,pict:'blueberries-919029_640 (1).jpg', rest:444,} 
-      ];
-        ReactDOM.render(
-          React.createElement(Ishop2,{companyName:nameShop,companyGoods:goodsArr}), 
-          document.getElementById('container') 
-        );
-  
-    </script>
-      
-</body>
+    <script src="bundle.js"></script>
+</body> 
 </html>

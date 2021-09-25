@@ -1,5 +1,9 @@
-const Ishop2 = React.createClass({
-    displayName: "iShop2",
+import React from 'react';
+import './Ishop3Shop.css';
+import './Ishop3Goods.js';
+
+const Ishop3Shop = React.createClass({
+    displayName: "Ishop3Shop",
     getDefaultProps: function() {
         return { 
             companyName: "Неизвестная компания",
@@ -35,7 +39,7 @@ const Ishop2 = React.createClass({
 
     render: function () {
         const arrGoods = this.state.listGoods.map( v =>
-            React.createElement(Ishop2Goods, {key:v.code,
+            React.createElement(Ishop3Goods, {key:v.code,
                 name:v.name, pict:v.pict, rest:v.rest,code:v.code, 
                 isSelected:(this.state.selectedStrCode===v.code),
                 cbSelected:this.strSelected,
@@ -57,3 +61,4 @@ const Ishop2 = React.createClass({
     }
  );
 
+ export default Ishop3Shop;
