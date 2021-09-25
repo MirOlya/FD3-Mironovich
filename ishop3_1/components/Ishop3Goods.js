@@ -13,13 +13,13 @@ const Ishop3Goods = React.createClass({
          }
       },
     propTypes: {
-        name: React.PropTypes.string,
-        code: React.PropTypes.number,
-        pict: React.PropTypes.string,
-        rest: React.PropTypes.number,
-        cbSelected: React.PropTypes.func.isRequired,
-        isSelected: React.PropTypes.bool.isRequired,
-        cbDelected: React.PropTypes.func.isRequired,
+        name: React.propTypes.string,
+        code: React.propTypes.number,
+        pict: React.propTypes.string,
+        rest: React.propTypes.number,
+        cbSelected: React.propTypes.func.isRequired,
+        isSelected: React.propTypes.bool.isRequired,
+        cbDelected: React.propTypes.func.isRequired,
     },
     delStr: function(){
         console.log('Удалили новую строку - '+this.props.code); 

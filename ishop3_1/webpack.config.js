@@ -1,8 +1,8 @@
 const path = require('path');
 
-const ExtractTextPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const extractCSS = new ExtractTextPlugin({
+const extractCSS = new MiniCssExtractPlugin({
     filename: "bundle.css"
 });
 
@@ -17,10 +17,17 @@ module.exports = {
         rules:[
             {
                 test: /\.css$/,
-                use: extractCSS.extract({
-                    use: ["css-loader"]
-                })
-            }            
+                use: [MiniCssExtractPlugin.loader, "css-loader"]
+            },
+            { 
+                test: /\.jsx?$/, // какие файлы обрабатывать
+                exclude: /node_modules/, // какие файлы пропускать
+                use: { loader: "babel-loader" }
+            },
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                type: 'asset/resource',
+              },
         ] 
     },
     plugins: [
