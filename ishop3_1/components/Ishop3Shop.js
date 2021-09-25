@@ -1,6 +1,6 @@
 import React from 'react';
-import './Ishop3Shop.css';
-import './Ishop3Goods.js';
+import './components/Ishop3Shop.css';
+import './components/Ishop3Goods.js';
 
 class Ishop3Shop extends React.Component {
 

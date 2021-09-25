@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Ishop3Goods.css';
+import './components/Ishop3Goods.css';
 
 class Ishop3Goods extends React.Component {
     static propTypes = {

@@ -20,7 +20,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             { 
-                test: /\.js?$/, // какие файлы обрабатывать
+                test: /\.jsx?$/, // какие файлы обрабатывать
                 exclude: /node_modules/, // какие файлы пропускать
                 use: { loader: "babel-loader" }
             },
