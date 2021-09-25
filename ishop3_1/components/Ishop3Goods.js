@@ -2,34 +2,25 @@ import React from 'react';
 
 import './Ishop3Goods.css';
 
-const Ishop3Goods = React.createClass({
-    displayName: "Ishop3Goods",
-    getDefaultProps: function() {
-        return { 
-            code: 0,
-            name: '',
-            pict: '',
-            rest: 0,
-         }
-      },
-    propTypes: {
-        name: React.propTypes.string,
-        code: React.propTypes.number,
-        pict: React.propTypes.string,
-        rest: React.propTypes.number,
-        cbSelected: React.propTypes.func.isRequired,
-        isSelected: React.propTypes.bool.isRequired,
-        cbDelected: React.propTypes.func.isRequired,
-    },
-    delStr: function(){
+class Ishop3Goods extends React.Component {
+    static propTypes = {
+        name: PropTypes.string,
+        code: PropTypes.number,
+        pict: PropTypes.string,
+        rest: PropTypes.number,
+        cbSelected: PropTypes.func.isRequired,
+        isSelected: PropTypes.bool.isRequired,
+        cbDelected: PropTypes.func.isRequired,
+    };
+    delStr = ()=>{
         console.log('Удалили новую строку - '+this.props.code); 
         this.props.cbDelected(this.props.code);
-    },
-    selStr: function(){
+    }
+    selStr = ()=>{
         console.log('Выбрали новую строку - '+this.props.code); 
         this.props.cbSelected(this.props.code);
-        },
-    render: function () {
+        }
+    render() {
         // 
         console.log(this.props.code +' = '+this.props.isSelected);
         return React.DOM.tr({key:this.props.code,className:this.props.isSelected?'Npp SelGood':'Npp'},
@@ -39,8 +30,7 @@ const Ishop3Goods = React.createClass({
             React.DOM.td({className:'Rest',onClick:this.selStr},this.props.rest),
             React.DOM.td({},
                 React.DOM.input({type:'button',value:'удалить',onClick:this.delStr})))
-        },
-    }
- );
+        }
+    };
 
  export default Ishop3Goods;

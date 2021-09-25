@@ -2,42 +2,37 @@ import React from 'react';
 import './Ishop3Shop.css';
 import './Ishop3Goods.js';
 
-const Ishop3Shop = React.createClass({
-    displayName: "Ishop3Shop",
-    getDefaultProps: function() {
-        return { 
-            companyName: "Неизвестная компания",
-            companyGoods: new Array(),
-         }
-      },
-    propTypes: {
-        companyName: React.PropTypes.string.isRequired,
-        companyGoods:React.PropTypes.arrayOf(
-            React.PropTypes.shape({
-              code: React.PropTypes.number.isRequired,
-              name: React.PropTypes.string.isRequired,
-              pict: React.PropTypes.string.isRequired,
-              rest: React.PropTypes.number.isRequired,
-              cdIsDelete: React.PropTypes.bool,
+class Ishop3Shop extends React.Component {
+
+    static propTypes = {
+        companyName: PropTypes.string.isRequired,
+        companyGoods:PropTypes.arrayOf(
+            PropTypes.shape({
+              code: PropTypes.number.isRequired,
+              name: PropTypes.string.isRequired,
+              pict: PropTypes.string.isRequired,
+              rest: PropTypes.number.isRequired,
+              cdIsDelete: PropTypes.bool,
             }))
-          },
-    getInitialState: function() {
-      return { 
-        selectedStrCode: null,
-        listGoods: this.props.companyGoods
-      };
-    },
-    strSelected: function(code) {
+          };
+
+    state = {
+      selectedStrCode: null,
+      listGoods: this.props.companyGoods
+      }
+
+    strSelected = (code) =>{
       console.log('выбрана строка с кодом '+code);
       this.setState( {selectedStrCode:code});
-    },
-    strDelected: function(code) {
+    }
+    
+    strDelected = (code) =>{
       console.log('удалена строка с кодом '+code);
       const newListGoods = this.state.listGoods.filter(v=>v.code!=code)
       this.setState( {listGoods:newListGoods});
-    },
+    }
 
-    render: function () {
+    render() {
         const arrGoods = this.state.listGoods.map( v =>
             React.createElement(Ishop3Goods, {key:v.code,
                 name:v.name, pict:v.pict, rest:v.rest,code:v.code, 
@@ -57,8 +52,8 @@ const Ishop3Shop = React.createClass({
         React.DOM.div( {className:'Company'}, this.props.companyName ),
         React.DOM.table( {className:'Goods'}, React.DOM.tbody({},headGoods.concat(arrGoods))),
         );
-    },
     }
- );
+  }
+ 
 
  export default Ishop3Shop;

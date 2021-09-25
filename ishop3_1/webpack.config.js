@@ -20,14 +20,14 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             },
             { 
-                test: /\.jsx?$/, // какие файлы обрабатывать
+                test: /\.js?$/, // какие файлы обрабатывать
                 exclude: /node_modules/, // какие файлы пропускать
                 use: { loader: "babel-loader" }
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
                 type: 'asset/resource',
-              },
+            },
         ] 
     },
     plugins: [
