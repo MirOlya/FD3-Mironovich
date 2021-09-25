@@ -22,7 +22,13 @@ module.exports = {
             { 
                 test: /\.jsx?$/, // какие файлы обрабатывать
                 exclude: /node_modules/, // какие файлы пропускать
-                use: { loader: "babel-loader" }
+                use: { loader: "babel-loader",
+                options: {
+                    presets: [
+                      ['@babel/preset-env', { targets: "defaults" }]
+                    ]
+                  }
+                }
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
