@@ -13,13 +13,21 @@
     background-color:blue;
     /* border-right:3px double green;
     border-left:3px double green; */
+}.Ishop .Npp .Pict{
+    width: 100px;
+    height: 100px;
 }
-.AddLabel{
-    margin: 10px;
+.Ishop>.Goods{
+    border-style: double;
+    border-color: red;
 }
-.AddInput{
-    margin-left: 5px;
+
+.Ishop .Npp{
+    border-bottom: black;
+    background-color:yellow;
 }
-.ADD{
-    align-items:center;
+.Ishop .SelGood{
+    background-color:red;
 }
+
+/*# sourceMappingURL=bundle.css.map*/
