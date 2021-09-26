@@ -16,7 +16,7 @@ let goodsArr=[
     <Ishop3Shop 
     companyName={nameShop}
     companyGoods={goodsArr}
-  />,
-    document.getElementById('container') 
+  />
+    ,document.getElementById('container') 
   );
 

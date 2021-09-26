@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Ishop3Shop.css';
 import './Ishop3Goods.js';
 
@@ -34,24 +35,31 @@ class Ishop3Shop extends React.Component {
 
     render() {
         const arrGoods = this.state.listGoods.map( v =>
-            React.createElement(Ishop3Goods, {key:v.code,
-                name:v.name, pict:v.pict, rest:v.rest,code:v.code, 
-                isSelected:(this.state.selectedStrCode===v.code),
-                cbSelected:this.strSelected,
-                cbDelected:this.strDelected,
-              })
+            <Ishop3Goods key={v.code}
+                name={v.name}
+                pict={v.pict}
+                rest={v.rest}
+                code={v.code} 
+                isSelected={this.state.selectedStrCode===v.code}
+                cbSelected={this.strSelected}
+                cbDelected={this.strDelected}
+              />
           );
-        const headGoods = new Array(React.DOM.tr({key:0,className:'Heading'},
-          React.DOM.th({className:'Head'},"Товар"),
-          React.DOM.th({className:'Head'},"Изображение"),
-          React.DOM.th({className:'Head'},"Остаток"),
-          React.DOM.th({className:'Head'},"Кнопка"),
-          ));
+        const headGoods = new Array(
+        <tr className='Heading'>
+          <th className='Head'>{"Товар"}</th>
+          <th className='Head'>{"Изображение"}</th>
+          <th className='Head'>{"Остаток"}</th>
+          <th className='Head'>{"Кнопка"}</th>
+        </tr>
+          );
   
-      return React.DOM.div( {className:'Ishop'}, 
-        React.DOM.div( {className:'Company'}, this.props.companyName ),
-        React.DOM.table( {className:'Goods'}, React.DOM.tbody({},headGoods.concat(arrGoods))),
-        );
+      return <div className='Ishop'> 
+        <div className='Company'>{this.props.companyName}</div>
+          <table className='Goods'> 
+            <tbody>{headGoods.concat(arrGoods)}</tbody>
+          </table>
+        </div>;
     }
   }
  
