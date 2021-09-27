@@ -13,21 +13,24 @@ class Ishop3Goods extends React.Component {
         isSelected: PropTypes.bool.isRequired,
         cbDelected: PropTypes.func.isRequired,
         cbEdited: PropTypes.func.isRequired,
+        isChanged: PropTypes.bool.isRequired,
     };
     delStr = ()=>{
         console.log('Удалили новую строку - '+this.props.code); 
-        this.props.cbDelected(this.props.code);
+        if(!this.props.isChanged)
+            this.props.cbDelected(this.props.code);
     }
     editStr = ()=>{
         console.log('Редактируем строку - '+this.props.code); 
-        this.props.cbEdited(this.props.code);
+        if(!this.props.isChanged)
+            this.props.cbEdited(this.props.code);
     }
     selStr = ()=>{
         console.log('Выбрали новую строку - '+this.props.code); 
-        this.props.cbSelected(this.props.code);
+        if(!this.props.isChanged)
+            this.props.cbSelected(this.props.code);
         }
     render() {
-        console.log(this.props.code +' = '+this.props.isSelected);
         return <tr key={this.props.code} className={this.props.isSelected?'Npp SelGood':'Npp'}>
           <td className='NameGood' onClick={this.selStr}>{this.props.name}</td>
           <td onClick={this.selStr}>
@@ -35,12 +38,9 @@ class Ishop3Goods extends React.Component {
           </td>
           <td className='Rest' onClick={this.selStr}>{this.props.rest}</td>
           <td>
-              <input type='button' value='удалить' onClick={this.delStr}/>
-              <input type='button' value='редактировать' onClick={this.editStr}/>
+              <input type='button' value='удалить' onClick={this.delStr} disabled={this.props.isChanged}/>
+              <input type='button' value='редактировать' onClick={this.editStr}  disabled={this.props.isChanged}/>
           </td>
-          {/* <td>
-              <input type='button' value='редактировать' onClick={this.editStr}/>
-          </td> */}
         </tr>
     }
 }

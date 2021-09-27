@@ -21232,19 +21232,39 @@ var Ishop3Shop = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Ishop3Shop.__proto__ || Object.getPrototypeOf(Ishop3Shop)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedStrCode: null,
       editedStrCode: null,
-      listGoods: _this.props.companyGoods
+      listGoods: _this.props.companyGoods,
+      mode: null, //1 - просмотр, 2 - редактирование, 3 - новый,
+      newStrCode: null,
+      newStrName: null,
+      newStrURL: null,
+      newStrRest: null,
+      flNewStrName: false,
+      flNewStrURL: false,
+      flNewStrRest: false
     }, _this.strSelected = function (code) {
       console.log('выбрана строка с кодом ' + code);
-      _this.setState({ selectedStrCode: code });
+      _this.setState({ mode: 1, selectedStrCode: code, newStrCode: null, editedStrCode: null });
     }, _this.strEdited = function (code) {
       console.log('редактируется строка с кодом ' + code);
-      _this.setState({ editedStrCode: code });
+      _this.setState({ mode: 2, editedStrCode: code, newStrCode: null, selectedStrCode: null });
     }, _this.strDelected = function (code) {
       console.log('удалена строка с кодом ' + code);
       var newListGoods = _this.state.listGoods.filter(function (v) {
         return v.code != code;
       });
       _this.setState({ listGoods: newListGoods });
+    }, _this.newStr = function () {
+      console.log('Новая строка ');
+      var newStrC = 0;
+      _this.state.listGoods.forEach(function (el) {
+        if (el.code > newStrC) newStrC = el.code;
+      });
+      newStrC++;
+      _this.setState({ mode: 3, newStrCode: newStrC, selectedStrCode: null, editedStrCode: null });
+    }, _this.findElListGoods = function () {
+      for (var ourGood = 0; ourGood < _this.state.listGoods.length; ourGood++) {
+        if (_this.state.listGoods[ourGood].code === _this.state.selectedStrCode) return ourGood;
+      }return 0;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -21289,6 +21309,80 @@ var Ishop3Shop = function (_React$Component) {
           "Управление"
         )
       ));
+      var addDiv = _react2.default.createElement('div', null);
+      if (this.state.mode === 1) {
+        console.log('find ' + ourGood);
+        var ourGood = this.findElListGoods();
+        if (ourGood > 0 && ourGood < this.state.listGoods.length) addDiv = _react2.default.createElement(
+          'div',
+          { className: 'Ishop ADD' },
+          _react2.default.createElement('h3', null),
+          _react2.default.createElement(
+            'h5',
+            null,
+            'ID ',
+            this.state.listGoods[ourGood].code
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'Name: ',
+            this.state.listGoods[ourGood].name
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'URL: ',
+            this.state.listGoods[ourGood].pict
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'Rest: ',
+            this.state.listGoods[ourGood].rest
+          )
+        );
+      } else if (this.state.mode === 2) {} else if (this.state.mode === 3) {
+        addDiv = _react2.default.createElement(
+          'div',
+          { className: 'Ishop ADD' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'ADD new product'
+          ),
+          _react2.default.createElement(
+            'h5',
+            null,
+            'ID ',
+            this.state.newStrCode
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'Name',
+            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrName, onBlur: this.checkName })
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'URL',
+            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrURL, onBlur: this.checkURL })
+          ),
+          _react2.default.createElement(
+            'label',
+            { className: 'AddLabel' },
+            'Rest',
+            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrRest, onBlur: this.checkName })
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('input', { type: 'button', value: 'ADD', onClick: this.addNewStr }),
+            _react2.default.createElement('input', { type: 'button', value: 'Cansel', onClick: this.canselNewStr })
+          )
+        );
+      };
 
       return _react2.default.createElement(
         'div',
@@ -21306,7 +21400,9 @@ var Ishop3Shop = function (_React$Component) {
             null,
             headGoods.concat(arrGoods)
           )
-        )
+        ),
+        _react2.default.createElement('input', { type: 'button', value: '\u041D\u043E\u0432\u044B\u0439', onClick: this.newStr }),
+        addDiv
       );
     }
   }]);
