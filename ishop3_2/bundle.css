@@ -20,9 +20,7 @@
 .AddInput{
     margin-left: 5px;
 }
-.ADD{
-    align-items:center;
-}.Ishop .Npp .Pict{
+.Ishop .Npp .Pict{
     width: 100px;
     height: 100px;
 }
@@ -37,6 +35,20 @@
 }
 .Ishop .SelGood{
     background-color:red;
+    
+}
+.Ishop3Control{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
+.ADD{
+    align-items:center;
+}
+.ErrorInput{
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
 /*# sourceMappingURL=bundle.css.map*/

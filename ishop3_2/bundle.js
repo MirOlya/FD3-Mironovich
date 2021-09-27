@@ -564,6 +564,41 @@ module.exports = warning;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(31)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -577,7 +612,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(8);
+  var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
 }
 
@@ -628,7 +663,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -647,7 +682,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -684,41 +719,6 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(31)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 11 */
@@ -1009,7 +1009,7 @@ var _Ishop3Shop2 = _interopRequireDefault(_Ishop3Shop);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var nameShop = 'My shop';
-var goodsArr = __webpack_require__(36);
+var goodsArr = __webpack_require__(38);
 
 _reactDom2.default.render(_react2.default.createElement(_Ishop3Shop2.default, {
   companyName: nameShop,
@@ -1072,7 +1072,7 @@ var require$$0 = __webpack_require__(6);
 var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(2);
 var emptyFunction = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -2813,7 +2813,7 @@ if (process.env.NODE_ENV === 'production') {
  LICENSE file in the root directory of this source tree.
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(3);__webpack_require__(2);var l=__webpack_require__(9),n=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(1),da=__webpack_require__(5),ea=__webpack_require__(12),fa=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15);
+var aa=__webpack_require__(3);__webpack_require__(2);var l=__webpack_require__(10),n=__webpack_require__(4),ba=__webpack_require__(11),ca=__webpack_require__(1),da=__webpack_require__(5),ea=__webpack_require__(12),fa=__webpack_require__(13),ha=__webpack_require__(14),ia=__webpack_require__(15);
 function w(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:w("227");
 function ja(a){switch(a){case "svg":return"http://www.w3.org/2000/svg";case "math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}
 var ka={Namespaces:{html:"http://www.w3.org/1999/xhtml",mathml:"http://www.w3.org/1998/Math/MathML",svg:"http://www.w3.org/2000/svg"},getIntrinsicNamespace:ja,getChildNamespace:function(a,b){return null==a||"http://www.w3.org/1999/xhtml"===a?ja(b):"http://www.w3.org/2000/svg"===a&&"foreignObject"===b?"http://www.w3.org/1999/xhtml":a}},la=null,oa={};
@@ -3140,7 +3140,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var react = __webpack_require__(3);
 var invariant = __webpack_require__(2);
-var ExecutionEnvironment = __webpack_require__(9);
+var ExecutionEnvironment = __webpack_require__(10);
 var _assign = __webpack_require__(4);
 var EventListener = __webpack_require__(11);
 var require$$0 = __webpack_require__(6);
@@ -3148,9 +3148,9 @@ var hyphenateStyleName = __webpack_require__(24);
 var emptyFunction = __webpack_require__(1);
 var camelizeStyleName = __webpack_require__(26);
 var performanceNow = __webpack_require__(28);
-var propTypes = __webpack_require__(10);
+var propTypes = __webpack_require__(7);
 var emptyObject = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 var shallowEqual = __webpack_require__(12);
 var containsNode = __webpack_require__(13);
 var focusNode = __webpack_require__(14);
@@ -20555,7 +20555,7 @@ module.exports = performanceNow;
 
 
 
-var ExecutionEnvironment = __webpack_require__(9);
+var ExecutionEnvironment = __webpack_require__(10);
 
 var performance;
 
@@ -20584,8 +20584,8 @@ var invariant = __webpack_require__(2);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(7);
+var ReactPropTypesSecret = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -21131,7 +21131,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(2);
-var ReactPropTypesSecret = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -21197,7 +21197,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(10);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -21206,6 +21206,10 @@ __webpack_require__(33);
 var _Ishop3Goods = __webpack_require__(34);
 
 var _Ishop3Goods2 = _interopRequireDefault(_Ishop3Goods);
+
+var _Ishop3Control = __webpack_require__(36);
+
+var _Ishop3Control2 = _interopRequireDefault(_Ishop3Control);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21232,39 +21236,45 @@ var Ishop3Shop = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Ishop3Shop.__proto__ || Object.getPrototypeOf(Ishop3Shop)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       selectedStrCode: null,
       editedStrCode: null,
+      newStrCode: null,
       listGoods: _this.props.companyGoods,
       mode: null, //1 - просмотр, 2 - редактирование, 3 - новый,
-      newStrCode: null,
-      newStrName: null,
-      newStrURL: null,
-      newStrRest: null,
-      flNewStrName: false,
-      flNewStrURL: false,
-      flNewStrRest: false
+      isChange: false
     }, _this.strSelected = function (code) {
       console.log('выбрана строка с кодом ' + code);
       _this.setState({ mode: 1, selectedStrCode: code, newStrCode: null, editedStrCode: null });
     }, _this.strEdited = function (code) {
       console.log('редактируется строка с кодом ' + code);
       _this.setState({ mode: 2, editedStrCode: code, newStrCode: null, selectedStrCode: null });
+    }, _this.strCanselMode = function (code) {
+      console.log('отмена действий со строкой ' + code);
+      _this.setState({ mode: null, isChange: false, editedStrCode: null, newStrCode: null, selectedStrCode: null });
+    }, _this.strChanged = function (code) {
+      console.log('были сделаны изменения. выбор не возможен ' + code);
+      _this.setState({ isChange: true });
     }, _this.strDelected = function (code) {
       console.log('удалена строка с кодом ' + code);
       var newListGoods = _this.state.listGoods.filter(function (v) {
         return v.code != code;
       });
-      _this.setState({ listGoods: newListGoods });
+      _this.setState({ listGoods: newListGoods, mode: null });
     }, _this.newStr = function () {
-      console.log('Новая строка ');
       var newStrC = 0;
       _this.state.listGoods.forEach(function (el) {
         if (el.code > newStrC) newStrC = el.code;
       });
       newStrC++;
+      console.log('Новая строка = ' + newStrC);
       _this.setState({ mode: 3, newStrCode: newStrC, selectedStrCode: null, editedStrCode: null });
-    }, _this.findElListGoods = function () {
+    }, _this.findElListGoods = function (code) {
       for (var ourGood = 0; ourGood < _this.state.listGoods.length; ourGood++) {
-        if (_this.state.listGoods[ourGood].code === _this.state.selectedStrCode) return ourGood;
-      }return 0;
+        if (_this.state.listGoods[ourGood].code === code) return {
+          'name': _this.state.listGoods[ourGood].name,
+          'pict': _this.state.listGoods[ourGood].pict,
+          'rest': _this.state.listGoods[ourGood].rest,
+          'code': _this.state.listGoods[ourGood].code
+        };
+      }return {};
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -21282,8 +21292,35 @@ var Ishop3Shop = function (_React$Component) {
           isSelected: _this2.state.selectedStrCode === v.code,
           cbSelected: _this2.strSelected,
           cbDelected: _this2.strDelected,
-          cbEdited: _this2.strEdited
+          cbEdited: _this2.strEdited,
+          isChanged: _this2.state.isChange
         });
+      });
+      var findEl = this.findElListGoods(this.state.selectedStrCode || this.state.editedStrCode || this.state.newStrCode);
+      if (this.state.mode === 1) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.selectedStrCode,
+        mode: this.state.mode,
+        name: findEl.name,
+        pict: findEl.pict,
+        rest: findEl.rest,
+        code: this.state.selectedStrCode,
+        cdMode: this.strCanselMode,
+        cdIsChanged: this.strChanged
+      });else if (this.state.mode === 2) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.editedStrCode,
+        mode: this.state.mode,
+        name: findEl.name,
+        pict: findEl.pict,
+        rest: findEl.rest,
+        code: this.state.editedStrCode,
+        cdMode: this.strCanselMode,
+        cdIsChanged: this.strChanged
+      });else if (this.state.mode === 3) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.newStrCode,
+        mode: this.state.mode,
+        name: '',
+        pict: '',
+        rest: 0,
+        code: this.state.newStrCode,
+        cdMode: this.strCanselMode,
+        cdIsChanged: this.strChanged
       });
       var headGoods = new Array(_react2.default.createElement(
         'tr',
@@ -21309,81 +21346,6 @@ var Ishop3Shop = function (_React$Component) {
           "Управление"
         )
       ));
-      var addDiv = _react2.default.createElement('div', null);
-      if (this.state.mode === 1) {
-        console.log('find ' + ourGood);
-        var ourGood = this.findElListGoods();
-        if (ourGood > 0 && ourGood < this.state.listGoods.length) addDiv = _react2.default.createElement(
-          'div',
-          { className: 'Ishop ADD' },
-          _react2.default.createElement('h3', null),
-          _react2.default.createElement(
-            'h5',
-            null,
-            'ID ',
-            this.state.listGoods[ourGood].code
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'Name: ',
-            this.state.listGoods[ourGood].name
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'URL: ',
-            this.state.listGoods[ourGood].pict
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'Rest: ',
-            this.state.listGoods[ourGood].rest
-          )
-        );
-      } else if (this.state.mode === 2) {} else if (this.state.mode === 3) {
-        addDiv = _react2.default.createElement(
-          'div',
-          { className: 'Ishop ADD' },
-          _react2.default.createElement(
-            'h3',
-            null,
-            'ADD new product'
-          ),
-          _react2.default.createElement(
-            'h5',
-            null,
-            'ID ',
-            this.state.newStrCode
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'Name',
-            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrName, onBlur: this.checkName })
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'URL',
-            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrURL, onBlur: this.checkURL })
-          ),
-          _react2.default.createElement(
-            'label',
-            { className: 'AddLabel' },
-            'Rest',
-            _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrRest, onBlur: this.checkName })
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement('input', { type: 'button', value: 'ADD', onClick: this.addNewStr }),
-            _react2.default.createElement('input', { type: 'button', value: 'Cansel', onClick: this.canselNewStr })
-          )
-        );
-      };
-
       return _react2.default.createElement(
         'div',
         { className: 'Ishop' },
@@ -21401,7 +21363,7 @@ var Ishop3Shop = function (_React$Component) {
             headGoods.concat(arrGoods)
           )
         ),
-        _react2.default.createElement('input', { type: 'button', value: '\u041D\u043E\u0432\u044B\u0439', onClick: this.newStr }),
+        _react2.default.createElement('input', { type: 'button', value: '\u041D\u043E\u0432\u044B\u0439', onClick: this.newStr, disabled: this.state.isChange }),
         addDiv
       );
     }
@@ -21444,7 +21406,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(10);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -21474,20 +21436,19 @@ var Ishop3Goods = function (_React$Component) {
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Ishop3Goods.__proto__ || Object.getPrototypeOf(Ishop3Goods)).call.apply(_ref, [this].concat(args))), _this), _this.delStr = function () {
             console.log('Удалили новую строку - ' + _this.props.code);
-            _this.props.cbDelected(_this.props.code);
+            if (!_this.props.isChanged) _this.props.cbDelected(_this.props.code);
         }, _this.editStr = function () {
             console.log('Редактируем строку - ' + _this.props.code);
-            _this.props.cbEdited(_this.props.code);
+            if (!_this.props.isChanged) _this.props.cbEdited(_this.props.code);
         }, _this.selStr = function () {
             console.log('Выбрали новую строку - ' + _this.props.code);
-            _this.props.cbSelected(_this.props.code);
+            if (!_this.props.isChanged) _this.props.cbSelected(_this.props.code);
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Ishop3Goods, [{
         key: 'render',
         value: function render() {
-            console.log(this.props.code + ' = ' + this.props.isSelected);
             return _react2.default.createElement(
                 'tr',
                 { key: this.props.code, className: this.props.isSelected ? 'Npp SelGood' : 'Npp' },
@@ -21509,8 +21470,8 @@ var Ishop3Goods = function (_React$Component) {
                 _react2.default.createElement(
                     'td',
                     null,
-                    _react2.default.createElement('input', { type: 'button', value: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C', onClick: this.delStr }),
-                    _react2.default.createElement('input', { type: 'button', value: '\u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', onClick: this.editStr })
+                    _react2.default.createElement('input', { type: 'button', value: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C', onClick: this.delStr, disabled: this.props.isChanged }),
+                    _react2.default.createElement('input', { type: 'button', value: '\u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', onClick: this.editStr, disabled: this.props.isChanged })
                 )
             );
         }
@@ -21527,7 +21488,8 @@ Ishop3Goods.propTypes = {
     cbSelected: _propTypes2.default.func.isRequired,
     isSelected: _propTypes2.default.bool.isRequired,
     cbDelected: _propTypes2.default.func.isRequired,
-    cbEdited: _propTypes2.default.func.isRequired
+    cbEdited: _propTypes2.default.func.isRequired,
+    isChanged: _propTypes2.default.bool.isRequired
 };
 exports.default = Ishop3Goods;
 
@@ -21539,6 +21501,217 @@ exports.default = Ishop3Goods;
 
 /***/ }),
 /* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(7);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+__webpack_require__(37);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Ishop3Control = function (_React$Component) {
+    _inherits(Ishop3Control, _React$Component);
+
+    function Ishop3Control() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Ishop3Control);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Ishop3Control.__proto__ || Object.getPrototypeOf(Ishop3Control)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            newStrCode: _this.props.code,
+            newStrName: _this.props.name,
+            newStrURL: _this.props.pict,
+            newStrRest: _this.props.rest,
+            flNewStrName: _this.props.name === '',
+            flNewStrURL: _this.props.pict === '',
+            flNewStrRest: Number(_this.props.rest) < 10,
+            disabled: _this.props.name === '' && Number(_this.props.rest) < 10 && _this.props.pict === ''
+        }, _this.changeName = function (EO) {
+            var chStr = EO.target.value;
+            _this.setState({ newStrName: chStr });
+            _this.props.cdIsChanged(_this.props.code);
+        }, _this.changeUrl = function (EO) {
+            var chStr = EO.target.value;
+            _this.setState({ newStrURL: chStr });
+            _this.props.cdIsChanged(_this.props.code);
+        }, _this.changeRest = function (EO) {
+            var chStr = EO.target.value;
+            _this.setState({ newStrRest: chStr });
+            _this.props.cdIsChanged(_this.props.code);
+        }, _this.checkName = function (EO) {
+            var chStr = EO.target.value;
+            if (chStr === '') _this.setState({ flNewStrName: true, disabled: true });else _this.setState({ flNewStrName: false, disabled: _this.state.flNewStrRest || _this.state.flNewStrURL });
+        }, _this.checkURL = function (EO) {
+            var chStr = EO.target.value;
+            if (chStr === '') _this.setState({ flNewStrURL: true, disabled: true });else _this.setState({ flNewStrURL: false, disabled: _this.state.flNewStrRest || _this.state.flNewStrName });
+        }, _this.checkRest = function (EO) {
+            var chStr = EO.target.value;
+            if (!Number(chStr) || Number(chStr) <= 0) _this.setState({ flNewStrRest: true, disabled: true });else _this.setState({ flNewStrRest: false, disabled: _this.state.flNewStrName || _this.state.flNewStrURL });
+        }, _this.canselNewStr = function () {
+            console.log('Отмена действий со строкой - ' + _this.props.code);
+            _this.props.cdMode(_this.props.code);
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Ishop3Control, [{
+        key: 'render',
+        value: function render() {
+            var addDiv = _react2.default.createElement('div', null);
+            var headerControl = '';
+            var ButtonControl = _react2.default.createElement('div', null);
+            if (this.props.mode === 1) {
+                addDiv = _react2.default.createElement(
+                    'div',
+                    { className: 'Ishop3Control ADD' },
+                    _react2.default.createElement('h3', null),
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        'ID ',
+                        this.state.newStrCode
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'Name: ',
+                        this.state.newStrName
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'URL: ',
+                        this.state.newStrURL
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'Rest: ',
+                        this.state.newStrRest
+                    )
+                );
+            } else {
+                if (this.props.mode === 2) {
+                    headerControl = 'EDIT new product';
+                    ButtonControl = _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement('input', { type: 'button', value: 'Save', onClick: this.addNewStr, disabled: this.state.disabled }),
+                        _react2.default.createElement('input', { type: 'button', value: 'Cansel', onClick: this.canselNewStr })
+                    );
+                } else if (this.props.mode === 3) {
+                    headerControl = 'ADD new product';
+                    ButtonControl = _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement('input', { type: 'button', value: 'Add', onClick: this.addNewStr, disabled: this.state.disabled }),
+                        _react2.default.createElement('input', { type: 'button', value: 'Cansel', onClick: this.canselNewStr })
+                    );
+                };
+
+                addDiv = _react2.default.createElement(
+                    'div',
+                    { className: 'Ishop3Control ADD' },
+                    _react2.default.createElement(
+                        'h3',
+                        null,
+                        headerControl
+                    ),
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        'ID ',
+                        this.state.newStrCode
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'Name',
+                        _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrName, onBlur: this.checkName, onChange: this.changeName }),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'ErrorInput' },
+                            this.state.flNewStrName ? 'BAD' : ''
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'URL',
+                        _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrURL, onBlur: this.checkURL, onChange: this.changeUrl }),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'ErrorInput' },
+                            this.state.flNewStrURL ? 'BAD' : ''
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        { className: 'AddLabel' },
+                        'Rest',
+                        _react2.default.createElement('input', { type: 'text', className: 'AddInput', value: this.state.newStrRest, onBlur: this.checkRest, onChange: this.changeRest }),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'ErrorInput' },
+                            this.state.flNewStrRest ? 'BAD' : ''
+                        )
+                    ),
+                    ButtonControl
+                );
+            };
+
+            return addDiv;
+        }
+    }]);
+
+    return Ishop3Control;
+}(_react2.default.Component);
+
+Ishop3Control.propTypes = {
+    mode: _propTypes2.default.number.isRequired,
+    code: _propTypes2.default.number.isRequired,
+    name: _propTypes2.default.string.isRequired,
+    pict: _propTypes2.default.string.isRequired,
+    rest: _propTypes2.default.number.isRequired,
+    cdMode: _propTypes2.default.func.isRequired,
+    cdIsChanged: _propTypes2.default.func.isRequired
+};
+exports.default = Ishop3Control;
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = [{"name":"Блюдо1","code":1,"pict":"./image/asian-1238668_640.jpg","rest":111},{"name":"Блюдо2","code":2,"pict":"./image/asparagus-2169305_1920.jpg","rest":222},{"name":"Блюдо3","code":3,"pict":"./image/berries-1869421_1920.jpg","rest":333},{"name":"Блюдо4","code":4,"pict":"./image/blueberries-919029_640 (1).jpg","rest":444},{"name":"Блюдо5","code":5,"pict":"./image/blueberries-919029_640 (1).jpg","rest":555}]

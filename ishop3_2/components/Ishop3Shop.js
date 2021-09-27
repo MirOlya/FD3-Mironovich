@@ -88,7 +88,7 @@ class Ishop3Shop extends React.Component {
           );
         const findEl = this.findElListGoods(this.state.selectedStrCode||this.state.editedStrCode||this.state.newStrCode);
         if(this.state.mode===1)
-          var addDiv = <Ishop3Control key={this.state.mode/this.state.selectedStrCode}
+          var addDiv = <Ishop3Control key={this.state.mode+"_"+this.state.selectedStrCode}
               mode={this.state.mode}
               name = {findEl.name}
               pict = {findEl.pict}
@@ -98,7 +98,7 @@ class Ishop3Shop extends React.Component {
               cdIsChanged = {this.strChanged}
             />;
         else if(this.state.mode===2) 
-          var addDiv = <Ishop3Control key={this.state.mode/this.state.editedStrCode}
+          var addDiv = <Ishop3Control key={this.state.mode+"_"+this.state.editedStrCode}
               mode={this.state.mode}
               name = {findEl.name}
               pict = {findEl.pict}
@@ -108,7 +108,7 @@ class Ishop3Shop extends React.Component {
               cdIsChanged = {this.strChanged}
             />;
         else if(this.state.mode===3) 
-            var addDiv = <Ishop3Control key={this.state.mode/this.state.newStrCode}
+            var addDiv = <Ishop3Control key={this.state.mode+"_"+this.state.newStrCode}
                 mode={this.state.mode}
                 name = {''}
                 pict = {''}
