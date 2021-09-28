@@ -10,8 +10,9 @@ class Ishop3Control extends React.Component {
         name: PropTypes.string.isRequired,
         pict: PropTypes.string.isRequired,
         rest: PropTypes.number.isRequired,
-        cdMode: PropTypes.func.isRequired,
-        cdIsChanged: PropTypes.func.isRequired,
+        cbMode: PropTypes.func.isRequired,
+        cbIsChanged: PropTypes.func.isRequired,
+        cbDoChangedOrAdd:PropTypes.func,
     };
 
     state = {
@@ -28,17 +29,17 @@ class Ishop3Control extends React.Component {
     changeName=(EO) =>{
         const chStr = EO.target.value;
         this.setState( {newStrName:chStr});
-        this.props.cdIsChanged(this.props.code);
+        this.props.cbIsChanged(this.props.code);
     }
     changeUrl=(EO) =>{
         const chStr = EO.target.value;
         this.setState( {newStrURL:chStr});
-        this.props.cdIsChanged(this.props.code);
+        this.props.cbIsChanged(this.props.code);
     }
     changeRest=(EO) =>{
         const chStr = EO.target.value;
         this.setState( {newStrRest:chStr});
-        this.props.cdIsChanged(this.props.code);
+        this.props.cbIsChanged(this.props.code);
     }
     checkName=(EO) => {
         const chStr = EO.target.value;
@@ -66,9 +67,18 @@ class Ishop3Control extends React.Component {
 
     canselNewStr = ()=>{
         console.log('Отмена действий со строкой - '+this.props.code); 
-        this.props.cdMode(this.props.code);
+        this.props.cbMode(this.props.code);
     }
 
+    addNewStr = ()=>{
+        console.log('Вносим изменения или добавляем - '+this.props.code); 
+        const el={'code':this.state.newStrCode,
+        'name': this.state.newStrName,
+        'pict': this.state.newStrURL,
+        'rest': this.state.newStrRest};
+        this.props.cbDoChangedOrAdd(el)
+    }
+  
 
     render() {
         let addDiv=<div></div>;

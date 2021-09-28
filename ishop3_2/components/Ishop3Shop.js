@@ -49,7 +49,25 @@ class Ishop3Shop extends React.Component {
     strDelected = (code) =>{
       console.log('удалена строка с кодом '+code);
       const newListGoods = this.state.listGoods.filter(v=>v.code!=code)
-      this.setState( {listGoods:newListGoods,mode:null});
+      this.setState( {listGoods:newListGoods,mode:null,isChange:false});
+    }
+
+    doChangedArr = (elArr)=>{
+      console.log('изменена или добавлена строка с кодом '+elArr.code);
+      let isFind=false;
+      let newListGoods = this.state.listGoods.slice();
+      for(let ourGood=0;ourGood<newListGoods.length;ourGood++)
+         if(newListGoods[ourGood].code === elArr.code){
+            newListGoods[ourGood].name = elArr.name;
+            newListGoods[ourGood].pict = elArr.pict;
+            newListGoods[ourGood].rest = elArr.rest;
+            isFind = true;
+            break;
+          };
+      if(!isFind){
+        newListGoods.push(elArr)
+      };
+      this.setState( {listGoods:newListGoods,mode:null,isChange:false});
     }
 
     newStr = () =>{
@@ -71,6 +89,8 @@ class Ishop3Shop extends React.Component {
           };
       return {};
     }
+
+
 
     render() {
         var arrGoods = this.state.listGoods.map( v =>
@@ -94,8 +114,8 @@ class Ishop3Shop extends React.Component {
               pict = {findEl.pict}
               rest = {findEl.rest}
               code = {this.state.selectedStrCode}
-              cdMode = {this.strCanselMode}
-              cdIsChanged = {this.strChanged}
+              cbMode = {this.strCanselMode}
+              cbIsChanged = {this.strChanged}
             />;
         else if(this.state.mode===2) 
           var addDiv = <Ishop3Control key={this.state.mode+"_"+this.state.editedStrCode}
@@ -104,8 +124,9 @@ class Ishop3Shop extends React.Component {
               pict = {findEl.pict}
               rest = {findEl.rest}
               code = {this.state.editedStrCode}
-              cdMode = {this.strCanselMode}
-              cdIsChanged = {this.strChanged}
+              cbMode = {this.strCanselMode}
+              cbIsChanged = {this.strChanged}
+              cbDoChangedOrAdd = {this.doChangedArr}
             />;
         else if(this.state.mode===3) 
             var addDiv = <Ishop3Control key={this.state.mode+"_"+this.state.newStrCode}
@@ -114,8 +135,9 @@ class Ishop3Shop extends React.Component {
                 pict = {''}
                 rest = {0}
                 code = {this.state.newStrCode}
-                cdMode = {this.strCanselMode}
-                cdIsChanged = {this.strChanged}
+                cbMode = {this.strCanselMode}
+                cbIsChanged = {this.strChanged}
+                cbDoChangedOrAdd = {this.doChangedArr}
                 />;
         var headGoods = new Array(
           <tr key="0" className='Heading'>

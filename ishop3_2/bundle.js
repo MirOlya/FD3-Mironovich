@@ -21258,6 +21258,23 @@ var Ishop3Shop = function (_React$Component) {
         return v.code != code;
       });
       _this.setState({ listGoods: newListGoods, mode: null });
+    }, _this.doChangedArr = function (elArr) {
+      console.log('изменена или добавлена строка с кодом ' + code);
+      var isFind = false;
+      var newListGoods = _this.state.listGoods.slice();
+      for (var ourGood = 0; ourGood < newListGoods.length; ourGood++) {
+        if (newListGoods[ourGood].code === elArr.code) {
+          newListGoods[ourGood].name = elArr.name;
+          newListGoods[ourGood].pict = elArr.pict;
+          newListGoods[ourGood].rest = elArr.rest;
+          isFind = true;
+          break;
+        }
+      };
+      if (!isFind) {
+        newListGoods.push(elArr);
+      }
+      _this.setState({ listGoods: newListGoods, mode: null });
     }, _this.newStr = function () {
       var newStrC = 0;
       _this.state.listGoods.forEach(function (el) {
@@ -21297,30 +21314,32 @@ var Ishop3Shop = function (_React$Component) {
         });
       });
       var findEl = this.findElListGoods(this.state.selectedStrCode || this.state.editedStrCode || this.state.newStrCode);
-      if (this.state.mode === 1) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.selectedStrCode,
+      if (this.state.mode === 1) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode + "_" + this.state.selectedStrCode,
         mode: this.state.mode,
         name: findEl.name,
         pict: findEl.pict,
         rest: findEl.rest,
         code: this.state.selectedStrCode,
-        cdMode: this.strCanselMode,
-        cdIsChanged: this.strChanged
-      });else if (this.state.mode === 2) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.editedStrCode,
+        cbMode: this.strCanselMode,
+        cbIsChanged: this.strChanged
+      });else if (this.state.mode === 2) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode + "_" + this.state.editedStrCode,
         mode: this.state.mode,
         name: findEl.name,
         pict: findEl.pict,
         rest: findEl.rest,
         code: this.state.editedStrCode,
-        cdMode: this.strCanselMode,
-        cdIsChanged: this.strChanged
-      });else if (this.state.mode === 3) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode / this.state.newStrCode,
+        cbMode: this.strCanselMode,
+        cbIsChanged: this.strChanged,
+        cbDoChangedOrAdd: this.doChangedArr
+      });else if (this.state.mode === 3) var addDiv = _react2.default.createElement(_Ishop3Control2.default, { key: this.state.mode + "_" + this.state.newStrCode,
         mode: this.state.mode,
         name: '',
         pict: '',
         rest: 0,
         code: this.state.newStrCode,
-        cdMode: this.strCanselMode,
-        cdIsChanged: this.strChanged
+        cbMode: this.strCanselMode,
+        cbIsChanged: this.strChanged,
+        cbDoChangedOrAdd: this.doChangedArr
       });
       var headGoods = new Array(_react2.default.createElement(
         'tr',
@@ -21556,15 +21575,15 @@ var Ishop3Control = function (_React$Component) {
         }, _this.changeName = function (EO) {
             var chStr = EO.target.value;
             _this.setState({ newStrName: chStr });
-            _this.props.cdIsChanged(_this.props.code);
+            _this.props.cbIsChanged(_this.props.code);
         }, _this.changeUrl = function (EO) {
             var chStr = EO.target.value;
             _this.setState({ newStrURL: chStr });
-            _this.props.cdIsChanged(_this.props.code);
+            _this.props.cbIsChanged(_this.props.code);
         }, _this.changeRest = function (EO) {
             var chStr = EO.target.value;
             _this.setState({ newStrRest: chStr });
-            _this.props.cdIsChanged(_this.props.code);
+            _this.props.cbIsChanged(_this.props.code);
         }, _this.checkName = function (EO) {
             var chStr = EO.target.value;
             if (chStr === '') _this.setState({ flNewStrName: true, disabled: true });else _this.setState({ flNewStrName: false, disabled: _this.state.flNewStrRest || _this.state.flNewStrURL });
@@ -21576,7 +21595,14 @@ var Ishop3Control = function (_React$Component) {
             if (!Number(chStr) || Number(chStr) <= 0) _this.setState({ flNewStrRest: true, disabled: true });else _this.setState({ flNewStrRest: false, disabled: _this.state.flNewStrName || _this.state.flNewStrURL });
         }, _this.canselNewStr = function () {
             console.log('Отмена действий со строкой - ' + _this.props.code);
-            _this.props.cdMode(_this.props.code);
+            _this.props.cbMode(_this.props.code);
+        }, _this.addNewStr = function () {
+            console.log('Вносим изменения или добавляем - ' + _this.props.code);
+            var el = { 'code': _this.state.newStrCode,
+                'name': _this.state.newStrName,
+                'pict': _this.state.newStrURL,
+                'rest': _this.state.newStrRest };
+            _this.props.cbDoChangedOrAdd(el);
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -21699,8 +21725,9 @@ Ishop3Control.propTypes = {
     name: _propTypes2.default.string.isRequired,
     pict: _propTypes2.default.string.isRequired,
     rest: _propTypes2.default.number.isRequired,
-    cdMode: _propTypes2.default.func.isRequired,
-    cdIsChanged: _propTypes2.default.func.isRequired
+    cbMode: _propTypes2.default.func.isRequired,
+    cbIsChanged: _propTypes2.default.func.isRequired,
+    cbDoChangedOrAdd: _propTypes2.default.func
 };
 exports.default = Ishop3Control;
 
