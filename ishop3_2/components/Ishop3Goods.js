@@ -34,7 +34,8 @@ class Ishop3Goods extends React.Component {
         return <tr key={this.props.code} className={this.props.isSelected?'Npp SelGood':'Npp'}>
           <td className='NameGood' onClick={this.selStr}>{this.props.name}</td>
           <td onClick={this.selStr}>
-            {this.props.pict/* <img className= 'Pict' src={this.props.pict}/> */}
+            <img className= 'Pict' src={this.props.pict} alt='Не найден путь к изображению'/> 
+            {/* {this.props.pict} */}
           </td>
           <td className='Rest' onClick={this.selStr}>{this.props.rest}</td>
           <td>

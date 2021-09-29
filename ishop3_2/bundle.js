@@ -21257,9 +21257,9 @@ var Ishop3Shop = function (_React$Component) {
       var newListGoods = _this.state.listGoods.filter(function (v) {
         return v.code != code;
       });
-      _this.setState({ listGoods: newListGoods, mode: null });
+      _this.setState({ listGoods: newListGoods, mode: null, isChange: false });
     }, _this.doChangedArr = function (elArr) {
-      console.log('изменена или добавлена строка с кодом ' + code);
+      console.log('изменена или добавлена строка с кодом ' + elArr.code);
       var isFind = false;
       var newListGoods = _this.state.listGoods.slice();
       for (var ourGood = 0; ourGood < newListGoods.length; ourGood++) {
@@ -21273,8 +21273,8 @@ var Ishop3Shop = function (_React$Component) {
       };
       if (!isFind) {
         newListGoods.push(elArr);
-      }
-      _this.setState({ listGoods: newListGoods, mode: null });
+      };
+      _this.setState({ listGoods: newListGoods, mode: null, isChange: false });
     }, _this.newStr = function () {
       var newStrC = 0;
       _this.state.listGoods.forEach(function (el) {

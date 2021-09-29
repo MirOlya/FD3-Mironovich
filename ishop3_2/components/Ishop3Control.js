@@ -37,7 +37,7 @@ class Ishop3Control extends React.Component {
         this.props.cbIsChanged(this.props.code);
     }
     changeRest=(EO) =>{
-        const chStr = EO.target.value;
+        const chStr = Number(EO.target.value);
         this.setState( {newStrRest:chStr});
         this.props.cbIsChanged(this.props.code);
     }

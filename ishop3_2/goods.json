@@ -1,8 +1,8 @@
 [ 
-    {"name":"Блюдо1","code":1,"pict":"./image/asian-1238668_640.jpg", "rest":111}, 
-    {"name":"Блюдо2","code":2,"pict":"./image/asparagus-2169305_1920.jpg", "rest":222}, 
-    {"name":"Блюдо3","code":3,"pict":"./image/berries-1869421_1920.jpg","rest":333}, 
-    {"name":"Блюдо4","code":4,"pict":"./image/blueberries-919029_640 (1).jpg", "rest":444},
-    {"name":"Блюдо5","code":5,"pict":"./image/blueberries-919029_640 (1).jpg", "rest":555}
+    {"name":"Блюдо1","code":1,"pict":"./components/image/asian-1238668_640.jpg", "rest":111}, 
+    {"name":"Блюдо2","code":2,"pict":"./components/image/asparagus-2169305_1920.jpg", "rest":222}, 
+    {"name":"Блюдо3","code":3,"pict":"./components/image/berries-1869421_1920.jpg","rest":333}, 
+    {"name":"Блюдо4","code":4,"pict":"./components/image/blueberries-919029_640 (1).jpg", "rest":444},
+    {"name":"Блюдо5","code":5,"pict":"./components/image/blueberries-919029_640 (1).jpg", "rest":555}
 ]
   
