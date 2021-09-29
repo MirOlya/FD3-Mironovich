@@ -21258,14 +21258,20 @@ __webpack_require__(34);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BR2JSX = function BR2JSX(props) {
-  // let textArr = props.text.split(/\<br+(\s)*?(\/)*\>/);
   var textArr = props.text.split(/\<br\s*\/*\>/g);
-  console.log(textArr);
-  textArr = textArr.map(function (v, i) {
+  // let textArr = props.text.replace(/\<br\s*\/*\>/g,"%<br>%").split("%");
+  _react2.default.createElement(
+    _react.Fragment,
+    { key: i },
+    v,
+    _react2.default.createElement('br', null)
+  );
+  textArr = textArr.map(function (v) {
     return _react2.default.createElement(
-      'p',
-      { key: i },
-      v
+      _react.Fragment,
+      null,
+      v,
+      _react2.default.createElement('br', null)
     );
   });
   return _react2.default.createElement(
@@ -21330,23 +21336,19 @@ var ColorFrame = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ColorFrame.__proto__ || Object.getPrototypeOf(ColorFrame)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      color: _this.props.color[0]
-    }, _this.componentDidUpdate = function (oldProps, oldState) {
-      console.log('componentDidUpdate');
-      if (oldProps.color.length > 1) console.log(oldProps.color.length);
-      // this.setState({auxClassName:this.props.auxClassName}); // сработает при обновлении компонента
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ColorFrame.__proto__ || Object.getPrototypeOf(ColorFrame)).call.apply(_ref, [this].concat(args))), _this), _this.newArr = function (r, v) {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: "dashed 1px " + v, padding: "10px" } },
+        r
+      );
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ColorFrame, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { style: { border: "dashed 1px " + this.state.color, padding: "10px" } },
-        this.props.children
-      );
+      return this.props.color.reduce(this.newArr, this.props.children);
     }
   }]);
 
