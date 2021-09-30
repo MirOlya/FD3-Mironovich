@@ -21315,29 +21315,34 @@ var ColorFrame = function (_React$Component) {
   _inherits(ColorFrame, _React$Component);
 
   function ColorFrame() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
     _classCallCheck(this, ColorFrame);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ColorFrame.__proto__ || Object.getPrototypeOf(ColorFrame)).call.apply(_ref, [this].concat(args))), _this), _this.newArr = function (r, v) {
-      return _react2.default.createElement(
-        'div',
-        { style: { border: "dashed 1px " + v, padding: "10px" } },
-        r
-      );
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    return _possibleConstructorReturn(this, (ColorFrame.__proto__ || Object.getPrototypeOf(ColorFrame)).apply(this, arguments));
   }
 
   _createClass(ColorFrame, [{
     key: 'render',
     value: function render() {
-      return this.props.color.reduce(this.newArr, this.props.children);
+      // return (
+      //   this.props.color.reduce((r,v)=>{
+      //     return <div style={{border:"dashed 1px "+v,padding:"10px"}}>
+      //       {r}
+      //     </div>
+      //   },this.props.children)
+      // );
+      if (this.props.color.length = 0) {
+        _react2.default.createElement(
+          'div',
+          { style: { border: "dashed 1px " + this.props.color[0], padding: "10px" } },
+          this.props.children
+        );
+      } else {
+        _react2.default.createElement(
+          ColorFrame,
+          { color: this.props.color.slice(1) },
+          this.props.children
+        );
+      }
     }
   }]);
 
