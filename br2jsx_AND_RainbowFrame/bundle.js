@@ -21259,21 +21259,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var BR2JSX = function BR2JSX(props) {
   var textArr = props.text.split(/\<br\s*\/*\>/g);
-  // let textArr = props.text.replace(/\<br\s*\/*\>/g,"%<br>%").split("%");
-  _react2.default.createElement(
-    _react.Fragment,
-    { key: i },
-    v,
-    _react2.default.createElement('br', null)
-  );
-  textArr = textArr.map(function (v) {
-    return _react2.default.createElement(
-      _react.Fragment,
-      null,
-      v,
-      _react2.default.createElement('br', null)
-    );
-  });
+  textArr = textArr.reduce(function (el, a, i, m) {
+    return el.concat(a, _react2.default.createElement('br', { key: i }));
+  }, []); //textArr.map((v)=>v);
+  textArr.pop();
   return _react2.default.createElement(
     'div',
     { className: 'BR2JSX' },
