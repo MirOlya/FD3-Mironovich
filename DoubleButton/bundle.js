@@ -21182,10 +21182,8 @@ module.exports = function() {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+      value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(3);
 
@@ -21199,42 +21197,35 @@ var _withRainbowFrame = __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var colors = ['red', 'orange', 'yellow', 'green', '#00BFFF', 'blue', 'purple'];
 var FramedDoubleButton = (0, _withRainbowFrame.withRainbowFrame)(colors)(_DoubleButton2.default);
 
-var DoubleButton_AND_RainbowFrame = function (_React$Component) {
-  _inherits(DoubleButton_AND_RainbowFrame, _React$Component);
-
-  function DoubleButton_AND_RainbowFrame() {
-    _classCallCheck(this, DoubleButton_AND_RainbowFrame);
-
-    return _possibleConstructorReturn(this, (DoubleButton_AND_RainbowFrame.__proto__ || Object.getPrototypeOf(DoubleButton_AND_RainbowFrame)).apply(this, arguments));
-  }
-
-  _createClass(DoubleButton_AND_RainbowFrame, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        FramedDoubleButton,
-        { caption1: '\u044F \u0438\u0437 \u043B\u0435\u0441\u0443', caption2: '\u043C\u043E\u0440\u043E\u0437', cbPressed: function cbPressed(num) {
-            return alert(num);
-          } },
-        '\u0432\u044B\u0448\u0435\u043B, \u0431\u044B\u043B \u0441\u0438\u043B\u044C\u043D\u044B\u0439'
+var DoubleButton_AND_RainbowFrame = function DoubleButton_AND_RainbowFrame() {
+      return (
+            // <Fragment>
+            //   <DoubleButton caption1="однажды" caption2="пору" cbPressed={ num => alert(num) }>в студёную зимнюю</DoubleButton>
+            //   <FramedDoubleButton caption1="однажды" caption2="пору" cbPressed={ num => alert(num) }>в студёную зимнюю</FramedDoubleButton>
+            // </Fragment>
+            _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                        _DoubleButton2.default,
+                        { caption1: '\u043E\u0434\u043D\u0430\u0436\u0434\u044B', caption2: '\u043F\u043E\u0440\u0443', cbPressed: function cbPressed(num) {
+                                    return alert(num);
+                              } },
+                        '\u0432 \u0441\u0442\u0443\u0434\u0451\u043D\u0443\u044E \u0437\u0438\u043C\u043D\u044E\u044E'
+                  ),
+                  _react2.default.createElement(
+                        FramedDoubleButton,
+                        { caption1: '\u043E\u0434\u043D\u0430\u0436\u0434\u044B', caption2: '\u043F\u043E\u0440\u0443', cbPressed: function cbPressed(num) {
+                                    return alert(num);
+                              } },
+                        '\u0432 \u0441\u0442\u0443\u0434\u0451\u043D\u0443\u044E \u0437\u0438\u043C\u043D\u044E\u044E'
+                  )
+            )
       );
-      // return (<ColorFrame color={this.colors}>
-      //       <DoubleButton caption1="однажды" caption2="пору" cbPressed={ num => alert(num) }>в студёную зимнюю</DoubleButton>
-      //   </ColorFrame>)
-    }
-  }]);
-
-  return DoubleButton_AND_RainbowFrame;
-}(_react2.default.Component);
+};
 
 exports.default = DoubleButton_AND_RainbowFrame;
 
@@ -21284,6 +21275,7 @@ var DoubleButton = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DoubleButton.__proto__ || Object.getPrototypeOf(DoubleButton)).call.apply(_ref, [this].concat(args))), _this), _this.pres = function (EO, param) {
+      console.log(EO.target.data_pres);
       _this.props.cbPressed(param);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -21356,15 +21348,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function withRainbowFrame(color) {
   return function (Component) {
     return function (props) {
-      return _react2.default.createElement(
+      var newComp = _react2.default.createElement(
         "div",
-        { style: { border: "dashed 1px " + color, padding: "10px" } },
+        { style: { border: "dashed 2px " + color[0], padding: "10px" } },
         _react2.default.createElement(Component, props)
       );
+      for (var i = 1; i < color.length; i++) {
+        newComp = _react2.default.createElement(
+          "div",
+          { style: { border: "dashed 2px " + color[i], padding: "10px" } },
+          newComp
+        );
+      }return newComp;
     };
   };
-}
-
+};
 exports.withRainbowFrame = withRainbowFrame;
 
 /***/ })
