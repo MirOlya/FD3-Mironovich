@@ -29,8 +29,11 @@ class Mobile extends React.PureComponent {
       };
 
     getClients = ()=>{
-      return this.state.listClients.map( client =>
-        <MobileClient key={client.code} client={client} fl={this.state.flClients}/>)};
+      return this.state.listClients.map( client =>{
+        if(((this.state.flClients===2)&&(!client.condition))||(((this.state.flClients===3)&&(client.condition))))
+          return null
+        else
+          return <MobileClient key={client.code} client={client}/>})};
 
     setClients = (prn)=>{
       this.setState({flClients:prn});
