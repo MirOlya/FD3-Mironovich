@@ -4,21 +4,21 @@ import {voteEvents} from './events';
 
 import './MobileClients.css';
 
-class MobileClients extends React.PureComponent {
+class MobileClient extends React.PureComponent {
     static propTypes = {
         client: PropTypes.object,
+        disDel: PropTypes.bool
     };
-    state = {
-      isEditNow: null,
-    }
-
-    butEditClicked = (EO) => {
-        if(this.state.isEditNow===null){
-          this.setState((prev) =>({isEditNow:this.props.client}));
-          voteEvents.emit('EditClient',this.props.client);
-        }
-      }
     
+    state = {
+      isEditNow: this.props.disDel,
+    };
+    
+    butEditClicked = () => {
+        this.setState(()=>{isEditNow:true});
+        voteEvents.emit('EditClient',this.props.client);
+    };
+
     butDeleteClicked = (EO) => {
         voteEvents.emit('DeleteClient',this.props.client);
       }
@@ -31,7 +31,6 @@ class MobileClients extends React.PureComponent {
           <td className='NameClients'>{this.props.client.patronymic}</td>
           <td className='Rest'>{this.props.client.balans}</td>
           <td className={this.props.client.condition===true?'conditionactive':'conditionblock'}>{this.props.client.condition===true?'active':'blocked'}</td>
-          {/* <td className={this.props.client.condition?'conditionactive':'conditionblock'}>{''+this.props.client.condition}</td> */}
           <td>
               <input type='button' value='редактировать' onClick={this.butEditClicked}/>
           </td>
@@ -41,4 +40,4 @@ class MobileClients extends React.PureComponent {
         </tr>
     }
 }
-export default MobileClients;
+export default MobileClient;

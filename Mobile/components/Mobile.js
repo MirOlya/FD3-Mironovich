@@ -24,19 +24,14 @@ class Mobile extends React.PureComponent {
       activeCompany:this.props.companyNames[0],
       flClients:1,//1 - все, 2  - активные, 3- заблокированные,
       listClients:this.props.companyClients,
-      client:null,
-      clientEditNow:null
+      client:null
       };
 
-    getClients = ()=>{
-      return this.state.listClients.map( client =>{
-        if(((this.state.flClients===2)&&(!client.condition))||(((this.state.flClients===3)&&(client.condition))))
-          return null
-        else
-          return <MobileClient key={client.code} client={client}/>})};
 
     setClients = (prn)=>{
       this.setState({flClients:prn});
+      if(this.addDiv)
+      this.addDiv = null;
     }
 
     addDiv = null;
@@ -47,12 +42,12 @@ class Mobile extends React.PureComponent {
       this.setState( {...this.state,listClients:newListGoods});
     }
 
-    editClient = (elArr)=>{
-        if(this.state.client!=null)
-          this.editClients(this.state.client);
+    editClient = (newElArr)=>{
+        //if(this.state.client!=null)
+          //this.editClients(this.state.client);
         // let newElArr = {...elArr};
 
-        let newElArr = elArr;
+        //let newElArr = elArr;
         console.log('изменяется строка с кодом '+newElArr.code);
         this.addDiv = <MobileControl key={newElArr.code}
         editClient = {newElArr}
@@ -75,17 +70,14 @@ class Mobile extends React.PureComponent {
     this.setState({client:newElArr});
   }
 
-    editClients = (elArr) =>{
+    editClients = (elArr,isModify) =>{
       let isFind=false;
       let newListGoods = this.state.listClients.slice();
       for(let ourClient=0;ourClient<newListGoods.length;ourClient++)
          if(newListGoods[ourClient].code === elArr.code){
-            newListGoods[ourClient].code = elArr.code+newListGoods.length;
-            newListGoods[ourClient].name = elArr.name;
-            newListGoods[ourClient].surname = elArr.surname;
-            newListGoods[ourClient].patronymic = elArr.patronymic;
-            newListGoods[ourClient].balans = elArr.balans;
-            newListGoods[ourClient].condition = elArr.condition;
+          newListGoods[ourClient] = {...elArr};
+            newListGoods[ourClient].balans = Number(elArr.balans)?Number(elArr.balans):0;
+            newListGoods[ourClient].condition = elArr.condition===true?true:false;
             isFind = true;
             break;
           };
@@ -111,7 +103,7 @@ class Mobile extends React.PureComponent {
     render() {
       console.log('Render company = '+this.state.activeCompany);
       const comp = this.props.companyNames.map((el,i)=><button key={i} onClick = {()=>(this.setState({activeCompany:this.props.companyNames[i]}))}>{el}</button>);
-      const clientsCode=this.getClients();
+      //const clientsCode=this.getClients();
       var headClients = new Array(
         <tr key="0" className='Heading'>
           <th className='Head'>{"Фамилия"}</th>
@@ -123,7 +115,17 @@ class Mobile extends React.PureComponent {
           <th className='Head'>{"Удалить"}</th>
         </tr>
         );
-      return <div>
+        const tableClients = headClients.concat(this.state.listClients.map( client =>{
+          if(((this.state.flClients===2)&&(!client.condition))||(((this.state.flClients===3)&&(client.condition))))
+            return null
+          else
+            {
+              const key1 = ((this.state.client!=null)&&(this.state.client.code === client.code)?'--++':'')+client.code+client.name+client.surname+client.balans+client.condition+client.patronymic;
+              const disDel = ((this.state.client!=null)&&(this.state.client.code === client.code))?true:false;
+            return <MobileClient key={key1} client={client} disDel={disDel}/>
+          };
+          }))
+        return <div>
         {comp}
         <br/>
         Компания: {this.state.activeCompany}
@@ -133,7 +135,7 @@ class Mobile extends React.PureComponent {
         <button onClick = {()=>this.setClients(3)}>Заблокированные</button>
         <hr/>
         <table className='Mobile'> 
-          <tbody>{headClients.concat(clientsCode)}</tbody>
+          <tbody>{tableClients}</tbody>
         </table>
         <button onClick = {this.addClient}>Добавить клиента</button>
         {this.addDiv}

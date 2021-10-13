@@ -21,7 +21,7 @@ class MobileControl extends React.PureComponent {
         voteEvents.emit('EditClients',this.props.editClient);
     }
 
-    butSaveClicked = (EO) => {
+    butSaveClicked = () => {
         let nC = {...this.state.newClient};
         if ( this.newSurname ) { 
             nC.surname = this.newSurname.value;
@@ -39,11 +39,11 @@ class MobileControl extends React.PureComponent {
             nC.patronymic = this.newPatronymic.value;
         };
         if ( this.newCondition ) { 
-            nC.condition = this.newCondition.value==='on'?true:false;
-        };
+            nC.condition = this.newCondition.checked;
+        } ;
 
-        this.setState({newClient:nC, prnCansel: false});
         voteEvents.emit('EditClients',nC);
+        this.setState({newClient:nC, prnCansel: false});
       }
 
     newSurname = null;
@@ -91,7 +91,6 @@ class MobileControl extends React.PureComponent {
             </div>
 
         };
-
         addDiv=<div className="MobileControl ADD">
         <h3>{headerControl}</h3>
         <h5>ID {this.state.newClient.code}</h5>
@@ -112,7 +111,7 @@ class MobileControl extends React.PureComponent {
         </label>
         <br/>
         <label className='AddLabel'>Статус
-            <input type="checkbox" className='AddInput' defaultChecked={this.state.newClient.condition} ref={this.setNewCondition} onClick = {(eo)=>{eo.target.value=!eo.target.value}} ></input>
+            <input type="checkbox" className='AddInput' defaultChecked={this.state.newClient.condition} ref={this.setNewCondition} ></input>
         </label>
         <br/>
         {ButtonControl}
