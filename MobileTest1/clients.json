@@ -1,8 +1,0 @@
-[ 
-    {"surname":"Иванов","name":"Иван","patronymic":"Иванович","code":1,"balans":100,"condition":true}, 
-    {"surname":"Сидоров","name":"Сидор","patronymic":"Сидорович","code":2,"balans":200,"condition":true}, 
-    {"surname":"Петров","name":"Петр","patronymic":"Петрович","code":3,"balans":300,"condition":true}, 
-    {"surname":"Васечкин","name":"Василий","patronymic":"Васильевич","code":4,"balans":400,"condition":true},
-    {"surname":"Пупкин","name":"Марк","patronymic":"Маркович","code":5,"balans":500,"condition":false}
-]
-  
