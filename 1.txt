@@ -1,43 +1,103 @@
-0 verbose cli [
-0 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
-0 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-0 verbose cli   'test'
-0 verbose cli ]
-1 info using npm@7.4.0
-2 info using node@v15.6.0
-3 timing config:load:defaults Completed in 2ms
-4 timing config:load:file:C:\Program Files\nodejs\node_modules\npm\npmrc Completed in 5ms
-5 timing config:load:builtin Completed in 6ms
-6 timing config:load:cli Completed in 1ms
-7 timing config:load:env Completed in 1ms
-8 timing config:load:file:C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\.npmrc Completed in 1ms
-9 timing config:load:project Completed in 1ms
-10 timing config:load:file:C:\Users\MirOlya\.npmrc Completed in 0ms
-11 timing config:load:user Completed in 0ms
-12 timing config:load:file:C:\Users\MirOlya\AppData\Roaming\npm\etc\npmrc Completed in 0ms
-13 timing config:load:global Completed in 0ms
-14 timing config:load:cafile Completed in 0ms
-15 timing config:load:validate Completed in 0ms
-16 timing config:load:setUserAgent Completed in 0ms
-17 timing config:load:setEnvs Completed in 1ms
-18 timing config:load Completed in 13ms
-19 verbose npm-session 67fbeee0e3884f3c
-20 timing npm:load Completed in 26ms
-21 timing command:run-script Completed in 2547ms
-22 timing command:test Completed in 2552ms
-23 verbose stack Error: command failed
-23 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\index.js:64:27)
-23 verbose stack     at ChildProcess.emit (node:events:379:20)
-23 verbose stack     at maybeClose (node:internal/child_process:1065:16)
-23 verbose stack     at Process.ChildProcess._handle.onexit (node:internal/child_process:296:5)
-24 verbose pkgid tests@1.0.0
-25 verbose cwd C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest
-26 verbose Windows_NT 10.0.19042
-27 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "test"
-28 verbose node v15.6.0
-29 verbose npm  v7.4.0
-30 error code 1
-31 error path C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest
-32 error command failed
-33 error command C:\WINDOWS\system32\cmd.exe /d /s /c jest
-34 verbose exit 1
+indows PowerShell
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Попробуйте новую кроссплатформенную оболочку PowerShell (https://aka.ms/pscore6)
+
+PS C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\components> npm install
+
+> node-sass@4.6.1 install C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-sass
+> node scripts/install.js
+
+Downloading binary from https://github.com/sass/node-sass/releases/download/v4.6.1/win32-x64-83_binding.node
+Cannot download "https://github.com/sass/node-sass/releases/download/v4.6.1/win32-x64-83_binding.node": 
+
+HTTP error 404 Not Found
+
+Hint: If github.com is not accessible in your location
+      try setting a proxy via HTTP_PROXY, e.g.
+
+      export HTTP_PROXY=http://example.com:1234
+
+or configure npm proxy via
+
+      npm config set proxy http://example.com:8080
+
+> uglifyjs-webpack-plugin@0.4.6 postinstall C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\uglifyjs-webpack-plugin
+> node lib/post_install.js
+
+
+> node-sass@4.6.1 postinstall C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-sass       
+> node scripts/build.js
+
+Building: C:\Program Files\nodejs\node.exe C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-gyp\bin\node-gyp.js rebuild --verbose --libsass_ext= --libsass_cflags= --libsass_ldflags= --libsass_library=
+gyp info it worked if it ends with ok
+gyp verb cli [
+gyp verb cli   'C:\\Program Files\\nodejs\\node.exe',
+gyp verb cli   'C:\\Users\\MirOlya\\Documents\\VD3\\FD3-React-V5\\I_finish\\BasisReact\\node_modules\\node-gyp\\bin\\node-gyp.js',
+gyp verb cli   'rebuild',
+gyp verb cli   '--verbose',
+gyp verb cli   '--libsass_ext=',
+gyp verb cli   '--libsass_cflags=',
+gyp verb cli   '--libsass_ldflags=',
+gyp verb cli   '--libsass_library='
+gyp verb cli ]
+gyp info using node-gyp@3.6.2
+gyp info using node@14.18.1 | win32 | x64
+gyp verb command rebuild []
+gyp verb command clean []
+gyp verb clean removing "build" directory
+gyp verb command configure []
+gyp verb check python checking for Python executable "python2" in the PATH
+gyp verb `which` failed Error: not found: python2
+gyp verb `which` failed     at getNotFoundError (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:13:12)
+gyp verb `which` failed     at F (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:68:19)
+gyp verb `which` failed     at E (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:80:29)
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:89:16
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\isexe\index.js:42:5
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\isexe\windows.js:36:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (fs.js:191:21)
+gyp verb `which` failed  python2 Error: not found: python2
+gyp verb `which` failed     at getNotFoundError (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:13:12)
+gyp verb `which` failed     at F (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:68:19)
+gyp verb `which` failed     at E (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:80:29)
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\which\which.js:89:16
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\isexe\index.js:42:5
+gyp verb `which` failed     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\isexe\windows.js:36:5
+gyp verb `which` failed     at FSReqCallback.oncomplete (fs.js:191:21) {
+gyp verb `which` failed   code: 'ENOENT'
+gyp verb `which` failed }
+gyp verb check python checking for Python executable "python" in the PATH
+gyp verb `which` succeeded python C:\Python310\python.EXE
+gyp verb check python version `C:\Python310\python.EXE -c "import platform; print(platform.python_version());"` returned: "3.10.0\r\n"
+gyp verb could not find "C:\Python310\python.EXE". checking python launcher 
+gyp verb could not find "C:\Python310\python.EXE". guessing location 
+gyp verb ensuring that file exists: C:\Python27\python.exe
+gyp ERR! configure error
+gyp ERR! stack Error: Can't find Python executable "C:\Python310\python.EXE", you can set the PYTHON env variable.
+gyp ERR! stack     at PythonFinder.failNoPython (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-gyp\lib\configure.js:483:19)
+gyp ERR! stack     at PythonFinder.<anonymous> (C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-gyp\lib\configure.js:508:16)
+gyp ERR! stack     at C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\graceful-fs\polyfills.js:284:29
+gyp ERR! stack     at FSReqCallback.oncomplete (fs.js:191:21)
+gyp ERR! System Windows_NT 10.0.19042
+gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\MirOlya\\Documents\\VD3\\FD3-React-V5\\I_finish\\BasisReact\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" "--verbose" "--libsass_ext=" "--libsass_cflags=" "--libsass_ldflags=" "--libsass_library="
+gyp ERR! cwd C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\node_modules\node-sass
+gyp ERR! node -v v14.18.1
+gyp ERR! node-gyp -v v3.6.2
+gyp ERR! not ok 
+Build failed with error code: 1
+npm WARN basisreact@1.0.0 No repository field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} 
+(current: {"os":"win32","arch":"x64"})
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! node-sass@4.6.1 postinstall: `node scripts/build.js`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the node-sass@4.6.1 postinstall script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\MirOlya\AppData\Roaming\npm-cache\_logs\2021-10-14T09_45_11_886Z-debug.log
+PS C:\Users\MirOlya\Documents\VD3\FD3-React-V5\I_finish\BasisReact\components>

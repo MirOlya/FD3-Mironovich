@@ -1,0 +1,71 @@
+Windows PowerShell
+(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
+
+Попробуйте новую кроссплатформенную оболочку PowerShell (https://aka.ms/pscore6)
+
+PS C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest> npm install
+npm ERR! code 1
+npm ERR! path C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\node-sass
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c node scripts/build.js
+npm ERR! Building: C:\Program Files\nodejs\node.exe C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\node-gyp\bin\node-gyp.js rebuild --verbose --libsass_ext= --libsass_cflags= --libsass_ldflags= --libsass_library=     
+npm ERR! gyp info it worked if it ends with ok
+npm ERR! gyp verb cli [
+npm ERR! gyp verb cli   'C:\\Program Files\\nodejs\\node.exe',
+npm ERR! gyp verb cli   'C:\\Users\\MirOlya\\Documents\\KursReact\\FD3-Mironovich\\MobileTest\\node_modules\\node-gyp\\bin\\node-gyp.js',
+npm ERR! gyp verb cli   'rebuild',
+npm ERR! gyp verb cli   '--verbose',
+npm ERR! gyp verb cli   '--libsass_ext=',
+npm ERR! gyp verb cli   '--libsass_cflags=',
+npm ERR! gyp verb cli   '--libsass_ldflags=',
+npm ERR! gyp verb cli   '--libsass_library='
+npm ERR! gyp verb cli ]
+npm ERR! gyp info using node-gyp@3.6.2
+npm ERR! gyp info using node@15.6.0 | win32 | x64
+npm ERR! gyp verb command rebuild []
+npm ERR! gyp verb command clean []
+npm ERR! gyp verb clean removing "build" directory
+npm ERR! gyp verb command configure []
+npm ERR! gyp verb check python checking for Python executable "python2" in the PATH
+npm ERR! gyp verb `which` failed Error: not found: python2
+npm ERR! gyp verb `which` failed     at getNotFoundError (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:13:12)
+npm ERR! gyp verb `which` failed     at F (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:68:19)
+npm ERR! gyp verb `which` failed     at E (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:80:29)
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:89:16
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\isexe\index.js:42:5
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\isexe\windows.js:36:5
+npm ERR! gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:194:21)
+npm ERR! gyp verb `which` failed  python2 Error: not found: python2
+npm ERR! gyp verb `which` failed     at getNotFoundError (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:13:12)
+npm ERR! gyp verb `which` failed     at F (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:68:19)
+npm ERR! gyp verb `which` failed     at E (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:80:29)
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\which\which.js:89:16
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\isexe\index.js:42:5
+npm ERR! gyp verb `which` failed     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\isexe\windows.js:36:5
+npm ERR! gyp verb `which` failed     at FSReqCallback.oncomplete (node:fs:194:21) {
+npm ERR! gyp verb `which` failed   code: 'ENOENT'
+npm ERR! gyp verb `which` failed }
+npm ERR! gyp verb check python checking for Python executable "python" in the PATH
+npm ERR! gyp verb `which` succeeded python C:\Python310\python.EXE
+npm ERR! gyp verb check python version `C:\Python310\python.EXE -c "import platform; print(platform.python_version());"` returned: "3.10.0\r\n"
+npm ERR! gyp verb could not find "C:\Python310\python.EXE". checking python launcher
+npm ERR! gyp verb could not find "C:\Python310\python.EXE". guessing location
+npm ERR! gyp verb ensuring that file exists: C:\Python27\python.exe
+npm ERR! gyp ERR! configure error 
+npm ERR! gyp ERR! stack Error: Can't find Python executable "C:\Python310\python.EXE", you can set the PYTHON env variable.npm ERR! gyp ERR! stack     at PythonFinder.failNoPython (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\node-gyp\lib\configure.js:483:19)
+npm ERR! gyp ERR! stack     at PythonFinder.<anonymous> (C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\node-gyp\lib\configure.js:508:16)
+npm ERR! gyp ERR! stack     at C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\graceful-fs\polyfills.js:284:29
+npm ERR! gyp ERR! stack     at FSReqCallback.oncomplete (node:fs:194:21)
+npm ERR! gyp ERR! System Windows_NT 10.0.19042
+npm ERR! gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\MirOlya\\Documents\\KursReact\\FD3-Mironovich\\MobileTest\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild" "--verbose" "--libsass_ext=" "--libsass_cflags=" "--libsass_ldflags=" "--libsass_library="
+npm ERR! gyp ERR! cwd C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest\node_modules\node-sass
+npm ERR! gyp ERR! node -v v15.6.0
+npm ERR! gyp ERR! node-gyp -v v3.6.2
+npm ERR! gyp ERR! not ok
+npm ERR! Build failed with error code: 1
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\MirOlya\AppData\Local\npm-cache\_logs\2021-10-14T08_53_45_014Z-debug.log
+PS C:\Users\MirOlya\Documents\KursReact\FD3-Mironovich\MobileTest>
+
+

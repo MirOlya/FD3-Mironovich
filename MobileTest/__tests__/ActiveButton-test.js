@@ -23,7 +23,7 @@ test('работа Mobile', () => {
   expect(componentTree).toMatchSnapshot();
 
   // найдём в вёрстке компонента саму кнопку
-  const buttonElem = component.root.find( el =>  el.props.id==='all' /*&& el.props.aaa == 'bbb'*/ ); 
+  const buttonElem = component.root.find( el =>  el.props.id==='active' /*&& el.props.aaa == 'bbb'*/ ); 
   // и "нажмём" на неё
   buttonElem.props.onClick();
 
