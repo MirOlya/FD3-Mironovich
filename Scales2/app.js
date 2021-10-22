@@ -1,38 +1,9 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Product = /** @class */ (function () {
-    function Product(_scale, _name) {
-        this.name = _name;
-        this.scale = _scale;
-    }
-    Product.prototype.getScale = function () {
-        return this.scale;
-    };
-    Product.prototype.getName = function () {
-        return this.name;
-    };
-    return Product;
-}());
-;
 var Scales = /** @class */ (function () {
     function Scales() {
         this.products = [];
     }
     Scales.prototype.add = function (newProduct) {
-        this.products[this.products.length] = newProduct;
+        this.products.push(newProduct);
     };
     ;
     Scales.prototype.getSumScale = function () {
@@ -48,26 +19,36 @@ var Scales = /** @class */ (function () {
     };
     return Scales;
 }());
-var Tomato = /** @class */ (function (_super) {
-    __extends(Tomato, _super);
+var Tomato = /** @class */ (function () {
     function Tomato(_scale, _name) {
-        var _this = _super.call(this, _scale, _name) || this;
-        _this.typeProduct = 'Tomato';
-        return _this;
+        this.typeProduct = 'Tomato';
+        this.name = _name;
+        this.scale = _scale;
     }
     ;
+    Tomato.prototype.getScale = function () {
+        return this.scale;
+    };
+    Tomato.prototype.getName = function () {
+        return this.name;
+    };
     return Tomato;
-}(Product));
-var Apple = /** @class */ (function (_super) {
-    __extends(Apple, _super);
+}());
+var Apple = /** @class */ (function () {
     function Apple(_scale, _name) {
-        var _this = _super.call(this, _scale, _name) || this;
-        _this.typeProduct = 'Apple';
-        return _this;
+        this.typeProduct = 'Apple';
+        this.name = _name;
+        this.scale = _scale;
     }
     ;
+    Apple.prototype.getScale = function () {
+        return this.scale;
+    };
+    Apple.prototype.getName = function () {
+        return this.name;
+    };
     return Apple;
-}(Product));
+}());
 var t1 = new Tomato(10, '1111');
 var t2 = new Tomato(20, '2222');
 var a1 = new Apple(1, 'aaaa');
