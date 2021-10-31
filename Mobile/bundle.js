@@ -1065,7 +1065,7 @@ var MobileControl = function (_React$PureComponent) {
             console.log('Отмена действий со строкой - ' + _this.props.editClient.code);
             _this.setState({ prnCansel: false });
             _events.voteEvents.emit('EditClients', _this.props.editClient);
-        }, _this.butSaveClicked = function (EO) {
+        }, _this.butSaveClicked = function () {
             var nC = _extends({}, _this.state.newClient);
             if (_this.newSurname) {
                 nC.surname = _this.newSurname.value;
@@ -1083,11 +1083,11 @@ var MobileControl = function (_React$PureComponent) {
                 nC.patronymic = _this.newPatronymic.value;
             };
             if (_this.newCondition) {
-                nC.condition = _this.newCondition.value === 'on' ? true : false;
+                nC.condition = _this.newCondition.checked;
             };
 
-            _this.setState({ newClient: nC, prnCansel: false });
             _events.voteEvents.emit('EditClients', nC);
+            _this.setState({ newClient: nC, prnCansel: false });
         }, _this.newSurname = null, _this.newCode = null, _this.newName = null, _this.newPatronymic = null, _this.newBalans = null, _this.newCondition = null, _this.setNewSurname = function (ref) {
             _this.newSurname = ref;
         }, _this.setNewName = function (ref) {
@@ -1126,7 +1126,6 @@ var MobileControl = function (_React$PureComponent) {
                     _react2.default.createElement('input', { type: 'button', value: 'Cansel', onClick: this.canselNewStr })
                 );
             };
-
             addDiv = _react2.default.createElement(
                 'div',
                 { className: 'MobileControl ADD' },
@@ -1173,9 +1172,7 @@ var MobileControl = function (_React$PureComponent) {
                     'label',
                     { className: 'AddLabel' },
                     '\u0421\u0442\u0430\u0442\u0443\u0441',
-                    _react2.default.createElement('input', { type: 'checkbox', className: 'AddInput', defaultChecked: this.state.newClient.condition, ref: this.setNewCondition, onClick: function onClick(eo) {
-                            eo.target.value = !eo.target.value;
-                        } })
+                    _react2.default.createElement('input', { type: 'checkbox', className: 'AddInput', defaultChecked: this.state.newClient.condition, ref: this.setNewCondition })
                 ),
                 _react2.default.createElement('br', null),
                 ButtonControl
@@ -21452,25 +21449,22 @@ var Mobile = function (_React$PureComponent) {
       activeCompany: _this.props.companyNames[0],
       flClients: 1, //1 - все, 2  - активные, 3- заблокированные,
       listClients: _this.props.companyClients,
-      client: null,
-      clientEditNow: null
-    }, _this.getClients = function () {
-      return _this.state.listClients.map(function (client) {
-        if (_this.state.flClients === 2 && !client.condition || _this.state.flClients === 3 && client.condition) return null;else return _react2.default.createElement(_MobileClients2.default, { key: client.code, client: client });
-      });
+      client: null
     }, _this.setClients = function (prn) {
       _this.setState({ flClients: prn });
+      if (_this.addDiv) _this.addDiv = null;
     }, _this.addDiv = null, _this.deleteClient = function (elArr) {
       console.log('удалена строка с кодом ' + elArr.code);
       var newListGoods = _this.state.listClients.filter(function (v) {
         return v != elArr;
       });
       _this.setState(_extends({}, _this.state, { listClients: newListGoods }));
-    }, _this.editClient = function (elArr) {
-      if (_this.state.client != null) _this.editClients(_this.state.client);
+    }, _this.editClient = function (newElArr) {
+      //if(this.state.client!=null)
+      //this.editClients(this.state.client);
       // let newElArr = {...elArr};
 
-      var newElArr = elArr;
+      //let newElArr = elArr;
       console.log('изменяется строка с кодом ' + newElArr.code);
       _this.addDiv = _react2.default.createElement(_MobileControl2.default, { key: newElArr.code,
         editClient: newElArr,
@@ -21491,17 +21485,14 @@ var Mobile = function (_React$PureComponent) {
         mode: 3
       });
       _this.setState({ client: newElArr });
-    }, _this.editClients = function (elArr) {
+    }, _this.editClients = function (elArr, isModify) {
       var isFind = false;
       var newListGoods = _this.state.listClients.slice();
       for (var ourClient = 0; ourClient < newListGoods.length; ourClient++) {
         if (newListGoods[ourClient].code === elArr.code) {
-          newListGoods[ourClient].code = elArr.code + newListGoods.length;
-          newListGoods[ourClient].name = elArr.name;
-          newListGoods[ourClient].surname = elArr.surname;
-          newListGoods[ourClient].patronymic = elArr.patronymic;
-          newListGoods[ourClient].balans = elArr.balans;
-          newListGoods[ourClient].condition = elArr.condition;
+          newListGoods[ourClient] = _extends({}, elArr);
+          newListGoods[ourClient].balans = Number(elArr.balans) ? Number(elArr.balans) : 0;
+          newListGoods[ourClient].condition = elArr.condition === true ? true : false;
           isFind = true;
           break;
         }
@@ -21537,7 +21528,7 @@ var Mobile = function (_React$PureComponent) {
           el
         );
       });
-      var clientsCode = this.getClients();
+      //const clientsCode=this.getClients();
       var headClients = new Array(_react2.default.createElement(
         'tr',
         { key: '0', className: 'Heading' },
@@ -21577,6 +21568,13 @@ var Mobile = function (_React$PureComponent) {
           "Удалить"
         )
       ));
+      var tableClients = headClients.concat(this.state.listClients.map(function (client) {
+        if (_this2.state.flClients === 2 && !client.condition || _this2.state.flClients === 3 && client.condition) return null;else {
+          var key1 = (_this2.state.client != null && _this2.state.client.code === client.code ? '--++' : '') + client.code + client.name + client.surname + client.balans + client.condition + client.patronymic;
+          var disDel = _this2.state.client != null && _this2.state.client.code === client.code ? true : false;
+          return _react2.default.createElement(_MobileClients2.default, { key: key1, client: client, disDel: disDel });
+        };
+      }));
       return _react2.default.createElement(
         'div',
         null,
@@ -21613,7 +21611,7 @@ var Mobile = function (_React$PureComponent) {
           _react2.default.createElement(
             'tbody',
             null,
-            headClients.concat(clientsCode)
+            tableClients
           )
         ),
         _react2.default.createElement(
@@ -21681,35 +21679,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MobileClients = function (_React$PureComponent) {
-    _inherits(MobileClients, _React$PureComponent);
+var MobileClient = function (_React$PureComponent) {
+    _inherits(MobileClient, _React$PureComponent);
 
-    function MobileClients() {
+    function MobileClient() {
         var _ref;
 
         var _temp, _this, _ret;
 
-        _classCallCheck(this, MobileClients);
+        _classCallCheck(this, MobileClient);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MobileClients.__proto__ || Object.getPrototypeOf(MobileClients)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            isEditNow: null
-        }, _this.butEditClicked = function (EO) {
-            if (_this.state.isEditNow === null) {
-                _this.setState(function (prev) {
-                    return { isEditNow: _this.props.client };
-                });
-                _events.voteEvents.emit('EditClient', _this.props.client);
-            }
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MobileClient.__proto__ || Object.getPrototypeOf(MobileClient)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            isEditNow: _this.props.disDel
+        }, _this.butEditClicked = function () {
+            _this.setState(function () {
+                isEditNow: true;
+            });
+            _events.voteEvents.emit('EditClient', _this.props.client);
         }, _this.butDeleteClicked = function (EO) {
             _events.voteEvents.emit('DeleteClient', _this.props.client);
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    _createClass(MobileClients, [{
+    _createClass(MobileClient, [{
         key: 'render',
         value: function render() {
             console.log('Render client ' + this.props.client.surname + ' code = ' + this.props.client.code);
@@ -21755,13 +21751,14 @@ var MobileClients = function (_React$PureComponent) {
         }
     }]);
 
-    return MobileClients;
+    return MobileClient;
 }(_react2.default.PureComponent);
 
-MobileClients.propTypes = {
-    client: _propTypes2.default.object
+MobileClient.propTypes = {
+    client: _propTypes2.default.object,
+    disDel: _propTypes2.default.bool
 };
-exports.default = MobileClients;
+exports.default = MobileClient;
 
 /***/ }),
 /* 37 */

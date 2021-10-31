@@ -21479,7 +21479,7 @@ var Ishop3Goods = function (_React$Component) {
                 _react2.default.createElement(
                     'td',
                     { onClick: this.selStr },
-                    this.props.pict /* <img className= 'Pict' src={this.props.pict}/> */
+                    _react2.default.createElement('img', { className: 'Pict', src: this.props.pict, alt: '\u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D \u043F\u0443\u0442\u044C \u043A \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044E' })
                 ),
                 _react2.default.createElement(
                     'td',
@@ -21581,7 +21581,7 @@ var Ishop3Control = function (_React$Component) {
             _this.setState({ newStrURL: chStr });
             _this.props.cbIsChanged(_this.props.code);
         }, _this.changeRest = function (EO) {
-            var chStr = EO.target.value;
+            var chStr = Number(EO.target.value);
             _this.setState({ newStrRest: chStr });
             _this.props.cbIsChanged(_this.props.code);
         }, _this.checkName = function (EO) {
@@ -21741,7 +21741,7 @@ exports.default = Ishop3Control;
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = [{"name":"Блюдо1","code":1,"pict":"./image/asian-1238668_640.jpg","rest":111},{"name":"Блюдо2","code":2,"pict":"./image/asparagus-2169305_1920.jpg","rest":222},{"name":"Блюдо3","code":3,"pict":"./image/berries-1869421_1920.jpg","rest":333},{"name":"Блюдо4","code":4,"pict":"./image/blueberries-919029_640 (1).jpg","rest":444},{"name":"Блюдо5","code":5,"pict":"./image/blueberries-919029_640 (1).jpg","rest":555}]
+module.exports = [{"name":"Блюдо1","code":1,"pict":"./components/image/asian-1238668_640.jpg","rest":111},{"name":"Блюдо2","code":2,"pict":"./components/image/asparagus-2169305_1920.jpg","rest":222},{"name":"Блюдо3","code":3,"pict":"./components/image/berries-1869421_1920.jpg","rest":333},{"name":"Блюдо4","code":4,"pict":"./components/image/blueberries-919029_640 (1).jpg","rest":444},{"name":"Блюдо5","code":5,"pict":"./components/image/blueberries-919029_640 (1).jpg","rest":555}]
 
 /***/ })
 /******/ ]);

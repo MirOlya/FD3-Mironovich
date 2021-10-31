@@ -3273,7 +3273,7 @@ var _PagesRouter = __webpack_require__(60);
 
 var _PagesRouter2 = _interopRequireDefault(_PagesRouter);
 
-var _PagesLinks = __webpack_require__(71);
+var _PagesLinks = __webpack_require__(70);
 
 var _PagesLinks2 = _interopRequireDefault(_PagesLinks);
 
@@ -23897,19 +23897,19 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(9);
 
-var _Page_About = __webpack_require__(61);
+var _Page_About = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Page_About\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var _Page_About2 = _interopRequireDefault(_Page_About);
 
-var _Page_Company = __webpack_require__(62);
+var _Page_Company = __webpack_require__(61);
 
 var _Page_Company2 = _interopRequireDefault(_Page_Company);
 
-var _Page_Clients = __webpack_require__(64);
+var _Page_Clients = __webpack_require__(63);
 
 var _Page_Clients2 = _interopRequireDefault(_Page_Clients);
 
-var _Page_Client = __webpack_require__(69);
+var _Page_Client = __webpack_require__(68);
 
 var _Page_Client2 = _interopRequireDefault(_Page_Client);
 
@@ -23967,63 +23967,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Page_About = function (_React$PureComponent) {
-  _inherits(Page_About, _React$PureComponent);
-
-  function Page_About() {
-    _classCallCheck(this, Page_About);
-
-    return _possibleConstructorReturn(this, (Page_About.__proto__ || Object.getPrototypeOf(Page_About)).apply(this, arguments));
-  }
-
-  _createClass(Page_About, [{
-    key: 'render',
-    value: function render() {
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          '\u0441\u0430\u0439\u0442 \u043E \u043C\u043E\u0431\u0438\u043B\u044C\u043D\u043E\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438'
-        ),
-        '\u0434\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!'
-      );
-    }
-  }]);
-
-  return Page_About;
-}(_react2.default.PureComponent);
-
-exports.default = Page_About;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _MobileCompany = __webpack_require__(63);
+var _MobileCompany = __webpack_require__(62);
 
 var _MobileCompany2 = _interopRequireDefault(_MobileCompany);
 
@@ -24065,7 +24009,7 @@ var Page_Company = function (_React$PureComponent) {
 exports.default = Page_Company;
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24125,7 +24069,7 @@ MobileCompany.propTypes = {
 exports.default = MobileCompany;
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24141,7 +24085,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MobileClients = __webpack_require__(65);
+var _MobileClients = __webpack_require__(64);
 
 var _MobileClients2 = _interopRequireDefault(_MobileClients);
 
@@ -24183,7 +24127,7 @@ var Page_Company = function (_React$PureComponent) {
 exports.default = Page_Company;
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24203,11 +24147,11 @@ var _propTypes = __webpack_require__(4);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MobileClient = __webpack_require__(66);
+var _MobileClient = __webpack_require__(65);
 
 var _MobileClient2 = _interopRequireDefault(_MobileClient);
 
-__webpack_require__(68);
+__webpack_require__(67);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24267,7 +24211,7 @@ MobileClients.propTypes = {
 exports.default = MobileClients;
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24289,7 +24233,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(9);
 
-__webpack_require__(67);
+__webpack_require__(66);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24342,6 +24286,12 @@ MobileClient.propTypes = {
 exports.default = MobileClient;
 
 /***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 67 */
 /***/ (function(module, exports) {
 
@@ -24349,12 +24299,6 @@ exports.default = MobileClient;
 
 /***/ }),
 /* 68 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24370,7 +24314,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MobileClientInfo = __webpack_require__(70);
+var _MobileClientInfo = __webpack_require__(69);
 
 var _MobileClientInfo2 = _interopRequireDefault(_MobileClientInfo);
 
@@ -24419,7 +24363,7 @@ var Page_Client = function (_React$PureComponent) {
 exports.default = Page_Client;
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24483,7 +24427,7 @@ MobileClientInfo.propTypes = {
 exports.default = MobileClientInfo;
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24505,7 +24449,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(9);
 
-__webpack_require__(72);
+__webpack_require__(71);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24556,7 +24500,7 @@ var PagesLinks = function (_React$Component) {
 exports.default = PagesLinks;
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
