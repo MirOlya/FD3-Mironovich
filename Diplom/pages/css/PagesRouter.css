@@ -1,0 +1,9 @@
+.PagesRouter{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    /* width: calc( 100% - 80px); */
+    /* box-sizing:border-box; */
+    /* overflow: auto; */
+
+}

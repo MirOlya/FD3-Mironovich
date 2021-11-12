@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    place-content: center space-between;
+    align-items: center;
+    background-color:#011e41;
+    color:#fff;
+    font-size: 14px;
+    font-family: Montserrat,sans-serif;
+    height: 64px;
+    /* position: fixed;
+    width: 100%; */
+}
+.header span,button{
+    margin: 0 10px 0 10px;
+}
+.header img{
+    width: 40px;
+    height: 40px;
+    margin: auto 10px auto 10px;
+}
+.header_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

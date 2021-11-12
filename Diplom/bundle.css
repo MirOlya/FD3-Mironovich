@@ -40,5 +40,68 @@ span.MobileClientFIO
 .ActivePageLink {
     font-weight: bold;
 }
+.header{
+    display: flex;
+    flex-direction: row;
+    place-content: center space-between;
+    align-items: center;
+    background-color:#011e41;
+    color:#fff;
+    font-size: 14px;
+    font-family: Montserrat,sans-serif;
+    height: 64px;
+}
+.header span,button{
+    margin: 0 10px 0 10px;
+}.loginpage{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    flex: 1 1 100%;
+    font-family: Montserrat,sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+.container{
+    display:flex;
+    flex-direction: row;    
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+.infopage{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    background-color: #011e41;
+    max-width: 50%;
+    min-height: 100%;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+}
+.loginLabel{
+    margin: 10px;
+}
+.loginButton{
+    min-width: 100px;
+    color:#ffF;
+    background-color:#011e41;
+    margin: 10px auto;
 
+}
+.loginpage input{
+    background-color:rgb(232, 240, 254);
+    border: none;
+    border-bottom: 1px solid #011e41;
+    font-size: 18px;  
+    padding-bottom: 5px;
+}
+.errorlogin{
+    font-size: 14px;
+    color:rgba(255, 6, 6, 0.5);
+    margin: 3px;
+}
 /*# sourceMappingURL=bundle.css.map*/

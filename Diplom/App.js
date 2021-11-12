@@ -22,9 +22,7 @@ let store=createStore(combinedReducer);
 ReactDOM.render( 
   <Provider store={store}>
     <BrowserRouter>
-      <div>
-        <FirstLogin userName={''} userPass={''} isCheckPass={false} isCheckName={false}/>
-      </div>
+      <FirstLogin userName={''} userPass={''}/>
     </BrowserRouter>
   </Provider>
 , document.getElementById('container') );
