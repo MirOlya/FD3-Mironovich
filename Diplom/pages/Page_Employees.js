@@ -11,24 +11,6 @@ function Page_Employees (props){
   const [head, setHead] = useState([]);        
   const [type, settype] = useState(false);        
 
-  function handleChange(EO){
-    if(EO.target.id==='selectWhatShow'){
-      let newData = data.slice(0,Math.min(data.length,EO.target.value));
-      setData(newData);
-    }
-
-  }
-
-  useEffect(() => {
-    window.addEventListener('change', handleChange);
-  });
-  
-  useEffect(() => {
-    return () => {
-      window.removeEventListener('change', handleChange);
-    }
-  });
-
 
   useEffect(()=>{
       console.log('render');
@@ -36,7 +18,6 @@ function Page_Employees (props){
       .then(response => response.json())
       .then(json => {
         const arrData = JSON.parse(JSON.stringify(json));
-        console.log(typeof(arrData));
         const headTableEmployees = [];
         const tableEmployees = [];
         for (let key in arrData){
@@ -84,8 +65,8 @@ function Page_Employees (props){
             };
           tableEmployees[i] =  newEl   
           };
-        console.log(headTableEmployees);
-        console.log(tableEmployees);
+        // console.log(headTableEmployees);
+        // console.log(tableEmployees);
         setHead(headTableEmployees);
         setData(tableEmployees);
         settype(true)
@@ -95,6 +76,7 @@ function Page_Employees (props){
     
 
     console.log('head = '+head);
+    console.log('data = '+data);
     if(!type)
       return <Mirror/>
     else
@@ -104,10 +86,10 @@ function Page_Employees (props){
           <table className='Table1'> 
             <tbody>
               <HeadTableEmployees headTable={head}/>
-              <TableEmployees headTable={head} strTable={data}/>
+              <TableEmployees headTable={head} strTable={data} whatShow={5}/>
             </tbody>
           </table>
-          <PageFooter show={10}/>  
+          <PageFooter show={5}/>  
         </div>
       );
     
