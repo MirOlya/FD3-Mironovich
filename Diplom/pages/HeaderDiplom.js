@@ -16,13 +16,14 @@ function intHeaderDiplom(props){
             </div>
             <div>
                 Welcome {props.userName}
-                <button>Logout</button>
+                <button id='logout'>Logout</button>
             </div>
         </div>;
 
     return headerDiplom
 }
 const mapStateToProps = function (state) {
+    console.log('get user name');
     return {
       userName: state.loginer.userName,
     };

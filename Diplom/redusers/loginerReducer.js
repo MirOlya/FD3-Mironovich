@@ -4,14 +4,17 @@
   needCheck:false,
 };
 
+const LOGINE = 'LOGINE';
 // в редьюсере state - это не весь state Redux, а только тот раздел state,
 // за который отвечает данный редьюсер
 
 function loginerReducer(state=initState,action) {
 
+
+
   switch (action.type) {
 
-    case "LOGINE": {
+    case LOGINE: {
       console.log('state до обработки редьюсером:',state);
       let newState={...state};
       newState.userName = action.userName;

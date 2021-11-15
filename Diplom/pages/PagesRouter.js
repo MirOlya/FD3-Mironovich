@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
 import Page_Employees from './Page_Employees';
-import Page_Company from './Page_Company';
-import Page_Clients from './Page_Clients';
-import Page_Client from './Page_Client';
+import Page_Messages from './Page_Messages';
+import Page_Todos from './Page_Todos';
+import Page_Employee from './Page_Employee';
 
 import './css/PagesRouter.css';
 
@@ -13,9 +13,9 @@ function PagesRouter () {
     return (
       <div className='PagesRouter'>
         <Route path="/" exact component={Page_Employees} />
-        <Route path="/company" component={Page_Company} />
-        <Route path="/clients" component={Page_Clients} />
-        <Route path="/client/:clid" component={Page_Client} />
+        <Route path="/messages" component={Page_Messages} />
+        <Route path="/todos" component={Page_Todos} />
+        <Route path="/employee/:clid" component={Page_Employee} />
       </div>
     );
     

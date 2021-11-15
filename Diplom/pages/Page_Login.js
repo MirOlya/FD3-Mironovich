@@ -1,28 +1,63 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import PagesRouter from './PagesRouter';
 import PagesLinks from './PagesLinks';
 import HeaderDiplom from './HeaderDiplom';
 import {connect} from 'react-redux';
 import './css/Page_Login.css';
+
+
 function intFirstLogin(props){
     let mainPage = '';
     const [modeLogin,setModeLogin] = useState(true);//режим ввода true - вводим, false - загружаем
     const [isCheckName, setIsCheckName] = useState(false);//признак проверки имени true - проверяем, false - не проверяем
     const [isCheckPass, setIsCheckPass] = useState(false);//признак проверки пароля true - проверяем, false - не проверяем
 
+    const logoutClick=(EO)=>{
+        if(EO.target.id==='logout'){
+            setModeLogin(false);
+            const uN = '';
+            const uP = '';
+            props.dispatch( { 
+                type:"LOGINE",
+                userName:uN,
+                userPass:uP});
+            setModeLogin(true)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('click', logoutClick);
+      });
+      
+      useEffect(() => {
+        return () => {
+          window.removeEventListener('click', logoutClick);
+        }
+      });
+    
+
     const loginClick = ()=>{
         setModeLogin(false);
         //Проверяем логин и пароль
-        setTimeout(()=>1000,1000);
         const uN = newUserName.value;
         const uP = newUserPass.value;
-        if(true)
+        console.log(props);
+        if(true){
             props.dispatch( { 
                 type:"LOGINE",
                 userName:uN,
                 userPass:uP
             } );
+            // props.dispatch( { 
+            //     type:"SETNEWSHOW",
+            //     begShow:5
+            // } );
+            // props.dispatch( { 
+            //     type:"SETNEWRECORD",
+            //     beginRecord:1
+            // } );
+        };
         setModeLogin(true)
     };
     let newUserName = null;
@@ -61,7 +96,7 @@ function intFirstLogin(props){
     else
         mainPage =     
         <div id='id1' className='containerBase'>
-            <HeaderDiplom userName={props.userName}/>
+            <HeaderDiplom/>
             <div id='id2' className='mainContecst'>
                 <PagesLinks/>
                 <PagesRouter />
