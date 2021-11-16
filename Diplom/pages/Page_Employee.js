@@ -1,18 +1,12 @@
 import React from 'react';
 
-import EmployeeInfo from '../components/EmployeeInfo';
+import RecordMitData from '../components/RecordMitData';
 
-import appData from '../appData';
 
-export default function Page_Employees(props) {
+export default function Page_Employee(props) {
     const clientId=parseInt(props.match.params.clid);
 
-    const clientData=appData.clientsArr.find( c => c.id==clientId );
-
-    return (
-      <EmployeeInfo
-        info={clientData}
-      />
-    );
+    console.log('clientId = '+clientId);
+    return <RecordMitData strNavLink={'Employee'} header={'Сотрудник'} strFetch={'https://jsonplaceholder.typicode.com/users/'+clientId+'/'}/>
 
 }

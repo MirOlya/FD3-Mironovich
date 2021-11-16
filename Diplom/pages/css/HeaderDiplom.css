@@ -11,8 +11,12 @@
     /* position: fixed;
     width: 100%; */
 }
-.header span,button{
-    margin: 0 10px 0 10px;
+.headerDiplom_Logout span{
+    margin: 0 10px;
+}
+
+.headerDiplom_Logout{
+    margin: 0 10px;
 }
 .header img{
     width: 40px;

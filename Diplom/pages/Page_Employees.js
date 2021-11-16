@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 
 
 function Page_Employees (props){
-  // useEffect(()=>{
-  //   console.log('load SETNEWRECORD');
-  //   props.dispatch( { 
-  //     type:"SETNEWRECORD",
-  //     beginRecord:1
-  // } );
-  // },[])
+  useEffect(()=>{
+    console.log('load SETNEWRECORD');
+    props.dispatch( { 
+      type:"SETNEWRECORD",
+      beginRecord:1
+  } );
+  },[])
 
   return <PageMitData strNavLink={'Employee'} header={'Сотрудники'} strFetch={'https://jsonplaceholder.typicode.com/users'}/>
 }
 
 const mapStateToProps = function (state) {
   return {
-    beginRecord: ''+state.beginRecorder.beginRecord,
+    beginRecord: state.beginRecorder.beginRecord,
   };
 };
 

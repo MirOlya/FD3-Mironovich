@@ -13,12 +13,12 @@ function Page_Todos (props){
   } );
   },[])
 
-  return <PageMitData strNavLink={'Todos'} header={'Задания'} strFetch={'https://jsonplaceholder.typicode.com/todos'}/>
+  return <PageMitData strNavLink={'Todo'} header={'Задания'} strFetch={'https://jsonplaceholder.typicode.com/todos'}/>
 }
 
 const mapStateToProps = function (state) {
   return {
-    beginRecord: ''+state.beginRecorder.beginRecord,
+    beginRecord: state.beginRecorder.beginRecord,
   };
 };
 

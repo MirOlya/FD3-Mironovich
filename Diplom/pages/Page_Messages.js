@@ -13,12 +13,12 @@ function Page_Messages (props){
   } );
   },[])
 
-  return <PageMitData strNavLink={'Messege'} header={'Сообщения'} strFetch={'https://jsonplaceholder.typicode.com/comments'}/>
+  return <PageMitData strNavLink={'Message'} header={'Сообщения'} strFetch={'https://jsonplaceholder.typicode.com/comments'}/>
 }
 
 const mapStateToProps = function (state) {
   return {
-    beginRecord: ''+state.beginRecorder.beginRecord,
+    beginRecord: state.beginRecorder.beginRecord,
   };
 };
 

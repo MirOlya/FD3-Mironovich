@@ -5,13 +5,23 @@ import PagesLinks from './PagesLinks';
 import HeaderDiplom from './HeaderDiplom';
 import {connect} from 'react-redux';
 import './css/Page_Login.css';
+import isoFetch from 'isomorphic-fetch';
+
+var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+var stringName='MIRONOVICH_REACT2021_';
+// var stringName='MIRONOVICH_LINES2021_';
 
 
 function intFirstLogin(props){
     let mainPage = '';
+    let newUserName = null;
+    let newUserPass = null;
     const [modeLogin,setModeLogin] = useState(true);//режим ввода true - вводим, false - загружаем
     const [isCheckName, setIsCheckName] = useState(false);//признак проверки имени true - проверяем, false - не проверяем
     const [isCheckPass, setIsCheckPass] = useState(false);//признак проверки пароля true - проверяем, false - не проверяем
+
+    const [isCheckNameStore, setIsCheckNameStore] = useState(false);//признак проверки имени true - проверяем, false - не проверяем
+    const [isCheckPassStore, setIsCheckPassStore] = useState(false);//признак проверки пароля true - проверяем, false - не проверяем
 
     const logoutClick=(EO)=>{
         if(EO.target.id==='logout'){
@@ -37,31 +47,66 @@ function intFirstLogin(props){
       });
     
 
+    const fetchError = (errorMessage) => {
+        console.error(errorMessage);
+      };
+    
+    const fetchSuccess = (loadedData,newUserN,newUserP) => {
+        console.log(loadedData);
+        if(loadedData.result!=''){
+            const res = JSON.parse(loadedData.result)
+            console.log(res);
+            let {username,userpass} = res;
+            if((newUserN===username)&&(newUserP===userpass)){}
+            else{ 
+                username = ''; 
+                userpass = ''; 
+                setIsCheckNameStore(!(newUserN===username));
+                setIsCheckPassStore(!(newUserP===userpass))
+            };
+            props.dispatch( { 
+                type:"LOGINE",
+                userName:username,
+                userPass:userpass
+            } );
+            setModeLogin(true);
+            }
+    };
+        
     const loginClick = ()=>{
         setModeLogin(false);
         //Проверяем логин и пароль
         const uN = newUserName.value;
         const uP = newUserPass.value;
         console.log(props);
-        if(true){
-            props.dispatch( { 
-                type:"LOGINE",
-                userName:uN,
-                userPass:uP
-            } );
-            // props.dispatch( { 
-            //     type:"SETNEWSHOW",
-            //     begShow:5
-            // } );
-            // props.dispatch( { 
-            //     type:"SETNEWRECORD",
-            //     beginRecord:1
-            // } );
-        };
-        setModeLogin(true)
+        // отдельно создаём набор POST-параметров запроса
+        let sp = new URLSearchParams();
+        sp.append('f', 'READ');
+        sp.append('n', stringName+"LOGINPASSWORD");
+        // sp.append('f', 'INSERT');
+        // sp.append('v', JSON.stringify({'username':'Mirolya','userpass':'112233'}));
+
+
+        const loadData = () => {
+            isoFetch(ajaxHandlerScript, { method: 'post', body: sp })
+                .then( response => { // response - HTTP-ответ
+                    if (!response.ok)
+                        throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+                    else
+                        return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+                })
+                .then( data => {
+                    fetchSuccess(data,uN,uP); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+                })
+                .catch( error => {
+                    fetchError(error.message);
+                })
+            ;
+        
+            };
+            loadData();
     };
-    let newUserName = null;
-    let newUserPass = null;
+
     const setUserName = (ref) => {
         newUserName=ref;
     };
@@ -69,6 +114,8 @@ function intFirstLogin(props){
     const setUserPass = (ref) => {
         newUserPass=ref;
     };
+    // console.log(props.userName);
+    // console.log(props.userPass);
     if((props.userName==='')||(props.userPass==='')){
         mainPage = 
         <div className='container'>
@@ -82,12 +129,16 @@ function intFirstLogin(props){
                     <input type='text' placeholder='user name' ref={setUserName} onBlur={()=>setIsCheckName(newUserName.value===''?true:false)}/>
                     {isCheckName?
                         <p className='errorlogin'>Username is missing</p>:''}
+                    {isCheckNameStore?
+                        <p className='errorlogin'>Username is not valid</p>:''}
                 </label>
                 <label>
                     <h6 className='loginLabel'>Password</h6>
                     <input type='password' placeholder='password' ref={setUserPass} onBlur={()=>setIsCheckPass(newUserName.value===''?true:false)}/>
                     {isCheckPass?
                         <p className='errorlogin'>Password is missing</p>:''}
+                    {isCheckPassStore?
+                        <p className='errorlogin'>Password is not valid</p>:''}
                 </label>
                 <button className='loginButton' onClick={loginClick}>Login</button>
             </div>

@@ -4,6 +4,13 @@ import { NavLink } from 'react-router-dom';
 function HeadTable(props){
     let headTable = [];
     let headTable_second = [];
+    let rowSpan=1;
+    for(let i=0;i<props.headTable.length;i++)    
+        if(typeof(props.headTable[i])==='object'){
+            rowSpan=2;
+            break
+        }
+
     for(let i=0;i<props.headTable.length;i++)    
         if(typeof(props.headTable[i])==='object'){
             // console.log(props.headTable[i]);
@@ -15,12 +22,21 @@ function HeadTable(props){
         }
         else{
             // console.log(props.headTable[i]);
-            headTable.push(<th rowSpan={2} key = {i} className='Head'>{props.headTable[i]}</th>)
+            headTable.push(<th rowSpan={rowSpan} key = {i} className='Head'>{props.headTable[i]}</th>)
             // headTable_second.push(<th key = {'s'+i} className='Head'></th>)
         };
 
-    console.log(headTable);
-    console.log(headTable_second);
+    // console.log(headTable);
+    // console.log(headTable_second);
+    if(headTable_second.length===0)
+        // for(let i=0;i<headTable.length;i++)
+        //     headTable_second.push(<td key={'empty'+i}></td>);
+    return (
+        <Fragment>
+            <tr key="-1" className='Heading'>{headTable}</tr>
+        </Fragment>
+    )
+    else
     return (
         <Fragment>
             <tr key="-1" className='Heading'>{headTable}</tr>

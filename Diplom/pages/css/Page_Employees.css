@@ -1,17 +1,17 @@
-.Table{
+.Table_{
     display: flex;
     align-items: center;
     flex-direction: column;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
-.Table .Heading{
+.Table_ .Heading{
     background-color:#b6bec9;
     color:#011e41;
     border: #011e41 1px solid;
 }
 
-.Table .Str{
+.Table_ .Str{
     background-color:#fff;
     color:#000;
     border: black 1px solid;

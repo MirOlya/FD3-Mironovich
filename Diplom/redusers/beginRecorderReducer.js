@@ -13,7 +13,7 @@ const initState={
       case SETNEWRECORD: {
         console.log('state до обработки редьюсером:',state);
         let newState={...state};
-        newState.beginRecord = action.beginRecord;
+        newState.beginRecord = Number(action.beginRecord);
         console.log('state после обработки редьюсером:',newState);
         return newState;
       }
