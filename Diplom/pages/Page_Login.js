@@ -6,6 +6,7 @@ import HeaderDiplom from './HeaderDiplom';
 import {connect} from 'react-redux';
 import './css/Page_Login.css';
 import isoFetch from 'isomorphic-fetch';
+import Mirror from '../components/Mirror';
 
 var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
 var stringName='MIRONOVICH_REACT2021_';
@@ -17,6 +18,7 @@ function intFirstLogin(props){
     let newUserName = null;
     let newUserPass = null;
     const [modeLogin,setModeLogin] = useState(true);//режим ввода true - вводим, false - загружаем
+    const [isLoadedData,setIsLoadedData] = useState(false);//режим загрузки данных true - грузим, false - нет
     const [isCheckName, setIsCheckName] = useState(false);//признак проверки имени true - проверяем, false - не проверяем
     const [isCheckPass, setIsCheckPass] = useState(false);//признак проверки пароля true - проверяем, false - не проверяем
 
@@ -70,11 +72,13 @@ function intFirstLogin(props){
                 userPass:userpass
             } );
             setModeLogin(true);
+            setIsLoadedData(false);
             }
     };
         
     const loginClick = ()=>{
         setModeLogin(false);
+        setIsLoadedData(true);
         //Проверяем логин и пароль
         const uN = newUserName.value;
         const uP = newUserPass.value;
@@ -92,8 +96,11 @@ function intFirstLogin(props){
                 .then( response => { // response - HTTP-ответ
                     if (!response.ok)
                         throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
-                    else
+                    else{
+                        // for(let j=0;j<10000;j++)
+                        //     console.log(j);
                         return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+                    }
                 })
                 .then( data => {
                     fetchSuccess(data,uN,uP); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
@@ -114,36 +121,33 @@ function intFirstLogin(props){
     const setUserPass = (ref) => {
         newUserPass=ref;
     };
-    // console.log(props.userName);
-    // console.log(props.userPass);
-    if((props.userName==='')||(props.userPass==='')){
+    if((props.userName==='')||(props.userPass===''))
         mainPage = 
         <div className='container'>
             <div className='infopage'>
                 <h1>Diplom REACT Mironovich Olga</h1>
             </div>
             <div className='loginpage'>
+                {isLoadedData?<Mirror/>:null}
                 <h3>Login</h3>
                 <label>
                     <h6 className='loginLabel'>Username</h6>
-                    <input type='text' placeholder='user name' ref={setUserName} onBlur={()=>setIsCheckName(newUserName.value===''?true:false)}/>
+                    <input type='text' placeholder='user name' ref={setUserName} onFocus={()=>{setIsCheckNameStore(false);setIsCheckPassStore(false);}} onBlur={()=>setIsCheckName(newUserName.value===''?true:false)}/>
                     {isCheckName?
-                        <p className='errorlogin'>Username is missing</p>:''}
-                    {isCheckNameStore?
+                        <p className='errorlogin'>Username is missing</p>:isCheckNameStore?
                         <p className='errorlogin'>Username is not valid</p>:''}
                 </label>
                 <label>
                     <h6 className='loginLabel'>Password</h6>
-                    <input type='password' placeholder='password' ref={setUserPass} onBlur={()=>setIsCheckPass(newUserName.value===''?true:false)}/>
+                    <input type='password' placeholder='password' ref={setUserPass} onFocus={()=>{setIsCheckNameStore(false);setIsCheckPassStore(false);}} onBlur={()=>setIsCheckPass(newUserName.value===''?true:false)}/>
                     {isCheckPass?
-                        <p className='errorlogin'>Password is missing</p>:''}
-                    {isCheckPassStore?
+                        <p className='errorlogin'>Password is missing</p>:
+                        isCheckPassStore?
                         <p className='errorlogin'>Password is not valid</p>:''}
                 </label>
                 <button className='loginButton' onClick={loginClick}>Login</button>
             </div>
         </div>;
-    }
     else
         mainPage =     
         <div id='id1' className='containerBase'>

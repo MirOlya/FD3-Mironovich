@@ -12,6 +12,7 @@ function loginerReducer(state=initState,action) {
 
 
 
+  console.log('set begin LOGINE');
   switch (action.type) {
 
     case LOGINE: {

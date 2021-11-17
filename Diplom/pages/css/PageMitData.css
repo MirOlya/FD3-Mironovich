@@ -1,0 +1,8 @@
+.tableMitData{
+    max-height: 87vh;
+    max-width: 95vw;
+}
+.tableData {
+    max-height: 100%;
+    overflow: auto;
+}

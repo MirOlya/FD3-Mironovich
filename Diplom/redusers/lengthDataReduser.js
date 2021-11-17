@@ -1,19 +1,19 @@
 const initState={
-    begShow: 5,
+    lengthData: 0,
   };
   
-  const SETNEWSHOW = 'SETNEWSHOW';
+  const SETLENGTHDATA = 'SETLENGTHDATA';
   // в редьюсере state - это не весь state Redux, а только тот раздел state,
   // за который отвечает данный редьюсер
   
-  function showerReducer(state=initState,action) {
-      console.log('set begin SETNEWSHOW');
+  function lengthDataReduser(state=initState,action) {
+      console.log('set begin SETLENGTHDATA');
     switch (action.type) {
   
-      case SETNEWSHOW: {
+      case SETLENGTHDATA: {
         console.log('state до обработки редьюсером:',state);
         let newState={...state};
-        newState.begShow = ''+action.begShow;
+        newState.lengthData = action.lengthData;
         console.log('state после обработки редьюсером:',newState);
         return newState;
       }
@@ -23,5 +23,5 @@ const initState={
     }
   }
   
-  export default showerReducer;
+  export default lengthDataReduser;
   

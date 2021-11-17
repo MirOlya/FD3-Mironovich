@@ -1,12 +1,19 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import './css/PageFooter.css';
 
 function PageFooter(props){
-    const [whatShow,setWhatShow] = useState(props.begShow==='ALL'?props.begShow:Number(props.begShow));
-    const [counterStr,setCounterStr] = useState(props.beginRecord+'-'+props.show+' из '+props.allStrData);
+    const [whatShow,setWhatShow] = useState(props.begShow==='ALL'?props.allStrData:Number(props.begShow));
+    console.log(props.begShow);
+    console.log((props.begShow==='ALL'?props.allStrData:Number(props.begShow)));
+    console.log(props.allStrData);
+
+    const [counterStr,setCounterStr] = useState(props.beginRecord+'-'+(props.begShow==='ALL'?props.allStrData:Number(props.begShow))+' из ');
     const [minCounterShowStr,setminCounterShowStr] = useState(props.beginRecord);
-    const [maxCounterShowStr,setMaxCounterShowStr] = useState(Number(props.show));
+    const [maxCounterShowStr,setMaxCounterShowStr] = useState(props.begShow==='ALL'?props.allStrData:Number(props.begShow));
+    console.log(counterStr);
+    console.log('1 maxCounterShowStr = '+maxCounterShowStr+'  '+props.begShow+'  '+props.allStrData+'  '+Number(props.begShow));
     
     useEffect(()=>{
         console.log('setMaxCounterShowStr');
@@ -15,7 +22,8 @@ function PageFooter(props){
     },[whatShow,minCounterShowStr])
 
     useEffect(()=>{
-        setCounterStr(''+minCounterShowStr+'-'+maxCounterShowStr+' из '+props.allStrData)
+        console.log('2 maxCounterShowStr = '+maxCounterShowStr);
+        setCounterStr(''+minCounterShowStr+'-'+maxCounterShowStr+' из ')
     },[minCounterShowStr,maxCounterShowStr])
 
     const arrSelect = [5,10,20,'ALL'];
@@ -36,7 +44,6 @@ function PageFooter(props){
         if(props.begShow==='ALL')
             return;
         const nowRecord = Math.max(1,minCounterShowStr-Number(props.begShow));
-        console.log('1 nowRecord = '+nowRecord);
         props.dispatch( { 
             type:"SETNEWRECORD",
             beginRecord:nowRecord
@@ -48,7 +55,6 @@ function PageFooter(props){
         if(props.begShow==='ALL')
             return;
         const nowRecord = minCounterShowStr+Number(props.begShow);
-        console.log('2 nowRecord = '+nowRecord);
         if(nowRecord<props.allStrData){
             props.dispatch( { 
                 type:"SETNEWRECORD",
@@ -60,13 +66,13 @@ function PageFooter(props){
 
     return(
         <div className='footerPage'>
-            <select id = 'selectWhatShow' defaultValue={whatShow} onChange={selectWhatShow}>
+            <select id = 'selectWhatShow' defaultValue={whatShow} onChange={selectWhatShow} className='selectWhatShow'>
                 {arrSelect}
             </select>
-            <span>{props.begShow}</span>
-            <span>{props.beginRecord}</span>
+            {/* <span>{props.begShow}</span>
+            <span>{props.beginRecord}</span> */}
             <button id = {'decMinCounter'} onClick={decMinCounter}>{'<'}</button>
-            <span>{counterStr}</span>
+            <span>{counterStr+' '+props.allStrData}</span>
             <button id = {'incMinCounter'} onClick={incMinCounter}>{'>'}</button>
         </div>
     )
@@ -75,7 +81,8 @@ function PageFooter(props){
 const mapStateToProps = function (state) {
     return {
         begShow: ''+state.shower.begShow,
-        beginRecord:state.beginRecorder.beginRecord
+        beginRecord:state.beginRecorder.beginRecord,
+       
     };
   };
   

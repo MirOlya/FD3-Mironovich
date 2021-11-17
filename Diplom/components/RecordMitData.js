@@ -4,6 +4,7 @@ import HeadTableData from './HeadTable';
 import Mirror from './Mirror';
 import TableData from './TableData';
 import PageFooter from './PageFooter';
+import '../pages/css/PageMitData.css';
 
 function RecordMitData (props){
   const [data, setData] = useState([]);        
@@ -89,13 +90,13 @@ function RecordMitData (props){
       return <Mirror/>
     else
       return (
-        <div className='card'>
+        <div className='card tableMitData'>
           <h1 className='card-header'>{props.header}</h1>
-          <div className='card-body'>
+          <div className='card-body tableData'>
             <table className='table'> 
               <tbody>
-                <HeadTableData headTable={head}/>
-                <TableData headTable={head} strTable={data} strNavLink = {props.strNavLink}/>
+                <HeadTableData headTable={head} needDelete={false}/>
+                <TableData headTable={head} needDelete={false} strTable={data} strNavLink = {props.strNavLink}/>
               </tbody>
             </table>
           </div>

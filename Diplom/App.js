@@ -12,6 +12,7 @@ import FirstLogin from './pages/Page_Login';
 import loginerReducer from "./redusers/loginerReducer";
 import showerReducer from "./redusers/showerReducer";
 import beginRecorderReducer from "./redusers/beginRecorderReducer";
+import lengthDataReduser from "./redusers/lengthDataReduser";
 
 let combinedReducer=combineReducers({
   // редьюсер loginerReducer отвечает за раздел state под именем loginer - имя и пароль пользователя
@@ -20,6 +21,7 @@ let combinedReducer=combineReducers({
   shower: showerReducer, 
   // редьюсер beginRecorderReducer отвечает за раздел state под именем beginRecorder - начальная запись, с которой показываем
   beginRecorder: beginRecorderReducer, 
+  lengthData: lengthDataReduser,
   // + другие редьюсеры
 });
 

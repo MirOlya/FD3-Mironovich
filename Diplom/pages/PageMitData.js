@@ -4,6 +4,9 @@ import HeadTableData from '../components/HeadTable';
 import Mirror from '../components/Mirror';
 import TableData from '../components/TableData';
 import PageFooter from '../components/PageFooter';
+import './css/PageMitData.css';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 function PageMitData (props){
 
@@ -68,7 +71,10 @@ function PageMitData (props){
         // console.log(headTableEmployees);
         // console.log(tableEmployees);
         setHead(headTableEmployees);
-        setData(tableEmployees);
+        setData(()=>{
+          return tableEmployees;
+        });
+
         settype(true)
       });
     },[type]);
@@ -79,24 +85,35 @@ function PageMitData (props){
       return <Mirror/>
     else
       return (
-        <div className='card'>
+        <div className='card tableMitData'>
           <h1 className='card-header'>{props.header}</h1>
-          <div className='card-body'>
+          <PageFooter allStrData={props.lengthData}/>  
+          <div className='card-body tableData'>
             <table className='table table-bordered border-primar'> 
               <tbody>
-                <HeadTableData headTable={head}/>
-                <TableData headTable={head} strTable={data} strNavLink = {props.strNavLink}/>
+                <HeadTableData headTable={head} needDelete={true}/>
+                <TableData headTable={head} needDelete={true} strTable={data} strNavLink = {props.strNavLink}/>
               </tbody>
             </table>
-          </div>
-          <div className="card-footer text-muted">
-            <PageFooter allStrData={data.length}/>  
           </div>
         </div>
       );
     
 
 }
+
+const mapStateToProps = function (state) {
+  return {
+    lengthData: state.lengthData.lengthData
+    };
+};
+
+PageMitData.propTypes = {
+  lengthData:PropTypes.number,// получено из Redux
+};
+
+PageMitData = connect(mapStateToProps)(PageMitData);
+
 
 export default PageMitData;
     

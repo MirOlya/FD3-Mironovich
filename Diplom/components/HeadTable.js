@@ -1,15 +1,20 @@
 import React, { Fragment } from 'react';
+import { mdiDelete } from '@mdi/js';
+import Icon from '@mdi/react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 function HeadTable(props){
+    
     let headTable = [];
     let headTable_second = [];
     let rowSpan=1;
     for(let i=0;i<props.headTable.length;i++)    
         if(typeof(props.headTable[i])==='object'){
+            if(props.needDelete) headTable_second.push(<th key = {'delete2'} className='Head'>{''}</th>)
             rowSpan=2;
             break
         }
+    if(props.needDelete) headTable.push(<th rowSpan={rowSpan} key = {'delete1'} className='Head'>{<Icon path={mdiDelete} size={'24px'}/>}</th>)
 
     for(let i=0;i<props.headTable.length;i++)    
         if(typeof(props.headTable[i])==='object'){

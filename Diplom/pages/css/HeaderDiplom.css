@@ -14,6 +14,9 @@
 .headerDiplom_Logout span{
     margin: 0 10px;
 }
+.headerDiplom_Logout button{
+    background-color:#65758a;
+}
 
 .headerDiplom_Logout{
     margin: 0 10px;
