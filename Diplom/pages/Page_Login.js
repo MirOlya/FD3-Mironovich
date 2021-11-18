@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import './css/Page_Login.css';
 import isoFetch from 'isomorphic-fetch';
 import Mirror from '../components/Mirror';
+import {Tooltip} from '@mui/material';
 
 var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
 var stringName='MIRONOVICH_REACT2021_';
@@ -145,7 +146,9 @@ function intFirstLogin(props){
                         isCheckPassStore?
                         <p className='errorlogin'>Password is not valid</p>:''}
                 </label>
-                <button className='loginButton' onClick={loginClick}>Login</button>
+                <Tooltip title="User name: Mirolya. Rassword: 112233." enterDelay={500} leaveDelay={200}>
+                    <button className='loginButton' onClick={loginClick}>Login</button>
+                </Tooltip>
             </div>
         </div>;
     else

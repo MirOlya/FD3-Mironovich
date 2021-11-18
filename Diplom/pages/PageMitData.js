@@ -70,6 +70,10 @@ function PageMitData (props){
           };
         // console.log(headTableEmployees);
         // console.log(tableEmployees);
+        props.dispatch( { 
+          type:"SETLENGTHDATA",
+          lengthData:tableEmployees.length
+        } );
         setHead(headTableEmployees);
         setData(()=>{
           return tableEmployees;

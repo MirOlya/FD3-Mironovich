@@ -1,46 +1,104 @@
-div.MobileClient
-{
-  padding: 2px 0;
-}
 
-span.MobileClientBalance
-{
-  float: right;
-  width: 30px;
-  font-weight: bold;
-  text-align: right;
+.mirror {
+    position: absolute;
+    left: calc( 50% - 120px);
+    top: calc( 50% - 120px);
 }
-
-span.MobileClientFIO
-{
-  margin-right: 30px;
+.footerPage{
+    margin: 10px;
 }
-.MobileCompany
-{
-  border: double gray 3px;
-  width: 180px;
-  padding: 3px 7px;
-  background-color: lightyellow;
-}
-
-.MobileCompanyName
-{
-  font-weight: bold;
-}
-
-.MobileCompanyClients
-{
-  padding-top: 5px;
-}
-.PageLink {
-    color: black;
+.selectWhatShow{
+    width: 100px;
     margin-right: 10px;
+}
+
+.footerPage span{
+    margin: 0 10px;
+}.tableMitData{
+    max-height: 87vh;
+    max-width: 95vw;
+}
+.tableData {
+    max-height: 100%;
+    overflow: auto;
+}.PagesRouter{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    /* width: calc( 100% - 80px); */
+    /* box-sizing:border-box; */
+    /* overflow: auto; */
+
+}.PageLink {
+    color: black;
+    /* margin-right: 10px; */
+    /* background-color: #b6bec9;  */
+    height: 40px;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px 0 10px;
 }
 
 .ActivePageLink {
     font-weight: bold;
+    background-color:#859cb9;
 }
-.header{
+
+.links{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    flex: 1 1 100%;
+}
+.links_header{
+    place-content: center space-between;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    background-color:#65758a;
+    height: 60px;
+    color:#fff;
+}
+.links_header button{
+    background-color:#65758a;
+    color:#fff;
+    border: none;
+}
+.links_header span {
+    padding: 0 10px 0 10px;
+}
+.links_header_small{
+    max-width: 100px;
+    place-content: center;
+}
+.PageLinkSmall{
+    max-width: 100px;
+    display: flex;
+    align-items: center;
+}
+.links_small{
+    max-width: 100px;
+}
+.map_list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.map_nav{
+    padding: 0 10px 0 10px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.map_nav span{
+    padding-left: 10px;
+}
+
+.maps_links{
+    display: flex;
+    background-color:#b6bec9;
+    /* overflow: hidden; */
+}.header{
     display: flex;
     flex-direction: row;
     place-content: center space-between;
@@ -50,9 +108,28 @@ span.MobileClientFIO
     font-size: 14px;
     font-family: Montserrat,sans-serif;
     height: 64px;
+    /* position: fixed;
+    width: 100%; */
 }
-.header span,button{
-    margin: 0 10px 0 10px;
+.headerDiplom_Logout span{
+    margin: 0 10px;
+}
+.headerDiplom_Logout button{
+    background-color:#65758a;
+}
+
+.headerDiplom_Logout{
+    margin: 0 10px;
+}
+.header img{
+    width: 40px;
+    height: 40px;
+    margin: auto 10px auto 10px;
+}
+.header_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }.loginpage{
     display: flex;
     flex-direction: column;
@@ -62,6 +139,15 @@ span.MobileClientFIO
     font-size: 24px;
     font-weight: 700;
 }
+
+.containerBase{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* overflow: auto; */
+}
 .container{
     display:flex;
     flex-direction: row;    
@@ -69,11 +155,12 @@ span.MobileClientFIO
     align-items: center;
     height: 100vh;
     width: 100%;
+    max-height: 100%;
     box-sizing: border-box;
 }
 .infopage{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     flex: 1 1 100%;
     background-color: #011e41;
     max-width: 50%;
@@ -81,6 +168,9 @@ span.MobileClientFIO
     text-align: center;
     align-items: center;
     color: #fff;
+}
+.infopage h1{
+    margin:auto;
 }
 .loginLabel{
     margin: 10px;
@@ -103,5 +193,12 @@ span.MobileClientFIO
     font-size: 14px;
     color:rgba(255, 6, 6, 0.5);
     margin: 3px;
+}
+
+.mainContecst{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    /* overflow: auto; */
 }
 /*# sourceMappingURL=bundle.css.map*/

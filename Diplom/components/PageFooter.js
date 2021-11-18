@@ -2,29 +2,15 @@ import React, {Fragment, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import './css/PageFooter.css';
+import {Tooltip} from '@mui/material';
 
 function PageFooter(props){
-    const [whatShow,setWhatShow] = useState(props.begShow==='ALL'?props.allStrData:Number(props.begShow));
-    console.log(props.begShow);
-    console.log((props.begShow==='ALL'?props.allStrData:Number(props.begShow)));
-    console.log(props.allStrData);
-
-    const [counterStr,setCounterStr] = useState(props.beginRecord+'-'+(props.begShow==='ALL'?props.allStrData:Number(props.begShow))+' из ');
+    const [whatShow,setWhatShow] = useState(props.begShow);//==='ALL'?props.allStrData:Number(props.begShow));
     const [minCounterShowStr,setminCounterShowStr] = useState(props.beginRecord);
     const [maxCounterShowStr,setMaxCounterShowStr] = useState(props.begShow==='ALL'?props.allStrData:Number(props.begShow));
-    console.log(counterStr);
-    console.log('1 maxCounterShowStr = '+maxCounterShowStr+'  '+props.begShow+'  '+props.allStrData+'  '+Number(props.begShow));
-    
     useEffect(()=>{
-        console.log('setMaxCounterShowStr');
-        console.log(whatShow);
         setMaxCounterShowStr(whatShow==='ALL'?props.allStrData:Math.min(props.allStrData,minCounterShowStr+Number(whatShow)-1));
     },[whatShow,minCounterShowStr])
-
-    useEffect(()=>{
-        console.log('2 maxCounterShowStr = '+maxCounterShowStr);
-        setCounterStr(''+minCounterShowStr+'-'+maxCounterShowStr+' из ')
-    },[minCounterShowStr,maxCounterShowStr])
 
     const arrSelect = [5,10,20,'ALL'];
     for(let i=0;i<=arrSelect.length-1;i++)
@@ -37,6 +23,11 @@ function PageFooter(props){
             begShow:EO.target.value
         } );
         setWhatShow(()=>EO.target.value);
+        if(EO.target.value==='ALL')
+            props.dispatch( { 
+                type:"SETNEWRECORD",
+                beginRecord:1
+            } );
     }
 
     function decMinCounter(EO) {
@@ -69,11 +60,13 @@ function PageFooter(props){
             <select id = 'selectWhatShow' defaultValue={whatShow} onChange={selectWhatShow} className='selectWhatShow'>
                 {arrSelect}
             </select>
-            {/* <span>{props.begShow}</span>
-            <span>{props.beginRecord}</span> */}
-            <button id = {'decMinCounter'} onClick={decMinCounter}>{'<'}</button>
-            <span>{counterStr+' '+props.allStrData}</span>
-            <button id = {'incMinCounter'} onClick={incMinCounter}>{'>'}</button>
+            <Tooltip title={props.beginRecord===1?"You are at the top of the list. It is not possible to view the previous lines.":"Click to view previous "+props.begShow+" lines."} enterDelay={500} leaveDelay={200} placement="bottom-start">
+                <button id = {'decMinCounter'} onClick={decMinCounter}>{'<'}</button>
+            </Tooltip>
+            <span>{props.beginRecord}</span><span>{' - '}</span><span>{props.begShow==='ALL'?props.allStrData:maxCounterShowStr}</span><span>{' из '}</span><span>{+props.allStrData}</span>
+            <Tooltip title={props.allStrData===maxCounterShowStr?"You are at the end of the list. It is not possible to view the following lines.":"Click to view following "+props.begShow+" lines."} enterDelay={500} leaveDelay={200} placement="bottom-start">
+                <button id = {'incMinCounter'} onClick={incMinCounter}>{'>'}</button>
+            </Tooltip>
         </div>
     )
 }
@@ -82,6 +75,7 @@ const mapStateToProps = function (state) {
     return {
         begShow: ''+state.shower.begShow,
         beginRecord:state.beginRecorder.beginRecord,
+        allStrData: state.lengthData.lengthData,
        
     };
   };
@@ -90,6 +84,7 @@ const mapStateToProps = function (state) {
 PageFooter.propTypes = {
     begShow:PropTypes.string,// получено из Redux
     beginRecord:PropTypes.number,// получено из Redux
+    // allStrData: PropTypes.number,// получено из Redux
 };
 
 PageFooter = connect(mapStateToProps)(PageFooter);
