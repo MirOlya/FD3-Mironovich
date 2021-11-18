@@ -147,7 +147,7 @@ function intFirstLogin(props){
                         <p className='errorlogin'>Password is not valid</p>:''}
                 </label>
                 <Tooltip title="User name: Mirolya. Rassword: 112233." enterDelay={500} leaveDelay={200}>
-                    <button className='loginButton' onClick={loginClick}>Login</button>
+                    <button id='loginButton' className='loginButton' onClick={loginClick}>Login</button>
                 </Tooltip>
             </div>
         </div>;
