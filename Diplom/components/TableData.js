@@ -14,9 +14,9 @@ function TableData(props){
     const [strTab,setStrTab] = useState(whatShow==='ALL'?props.strTable.slice():props.strTable.slice(props.beginRecord-1,Math.min(props.strTable.length,props.beginRecord-1+Number(whatShow))));
 
     let strTableEmployees = [];
-    // function onClickEmployees(idEmployees){
-    //   console.log(idEmployees);
-    // }
+    function onClickEmployees(idEmployees){
+      console.log(idEmployees);
+    }
 
     useEffect(()=>{
       setStrTab((prev)=>{
@@ -127,7 +127,7 @@ function TableData(props){
     
     return (
         <Fragment>
-            {strTableEmployees}
+        {strTableEmployees}
         </Fragment>
     )
     

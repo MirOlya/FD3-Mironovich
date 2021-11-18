@@ -157,7 +157,7 @@ function intFirstLogin(props){
             <HeaderDiplom/>
             <div id='id2' className='mainContecst'>
                 <PagesLinks/>
-                <PagesRouter />
+                <PagesRouter/>
             </div>
         </div>;
 

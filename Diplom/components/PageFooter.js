@@ -63,7 +63,7 @@ function PageFooter(props){
             <Tooltip title={props.beginRecord===1?"You are at the top of the list. It is not possible to view the previous lines.":"Click to view previous "+props.begShow+" lines."} enterDelay={500} leaveDelay={200} placement="bottom-start">
                 <button id = {'decMinCounter'} onClick={decMinCounter}>{'<'}</button>
             </Tooltip>
-            <span>{props.beginRecord}</span><span>{' - '}</span><span>{props.begShow==='ALL'?props.allStrData:maxCounterShowStr}</span><span>{' из '}</span><span>{+props.allStrData}</span>
+            <span>{Math.min(props.beginRecord,props.allStrData)}</span><span>{' - '}</span><span>{props.begShow==='ALL'?props.allStrData:Math.min(props.allStrData,maxCounterShowStr)}</span><span>{' из '}</span><span>{+props.allStrData}</span>
             <Tooltip title={props.allStrData===maxCounterShowStr?"You are at the end of the list. It is not possible to view the following lines.":"Click to view following "+props.begShow+" lines."} enterDelay={500} leaveDelay={200} placement="bottom-start">
                 <button id = {'incMinCounter'} onClick={incMinCounter}>{'>'}</button>
             </Tooltip>

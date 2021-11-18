@@ -1,9 +1,28 @@
-.PagesRouter{
-    padding-left: 10px;
+.PagesRouter {
+  /* padding-left: 10px;
     display: flex;
-    flex-direction: column;
-    /* width: calc( 100% - 80px); */
-    /* box-sizing:border-box; */
-    /* overflow: auto; */
-
+    flex-direction: column; */
+  width: 100%;
+}
+.page {
+  position: relative;
+  left: 0;
+  right: 0;
+  transform-origin: 50% 0%;
+}
+.page.enter-active {
+  animation: fade-in 500ms forwards;
+}
+.page.exit-active {
+  opacity: 0;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
 }

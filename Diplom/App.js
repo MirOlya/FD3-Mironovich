@@ -13,6 +13,7 @@ import loginerReducer from "./redusers/loginerReducer";
 import showerReducer from "./redusers/showerReducer";
 import beginRecorderReducer from "./redusers/beginRecorderReducer";
 import lengthDataReduser from "./redusers/lengthDataReduser";
+import './pages/css/PagesRouter.css';
 
 let combinedReducer=combineReducers({
   // редьюсер loginerReducer отвечает за раздел state под именем loginer - имя и пароль пользователя

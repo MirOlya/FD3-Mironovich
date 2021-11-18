@@ -1,6 +1,5 @@
-
 .mirror {
-    position: absolute;
-    left: calc( 50% - 120px);
-    top: calc( 50% - 120px);
+  position: absolute;
+  left: calc(50% - 120px);
+  top: calc(50% + 120px);
 }
