@@ -8,6 +8,7 @@ import "./css/PageMitData.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useTransition, animated } from "react-spring";
+import { CSSTransitionGroup } from "react-transition-group";
 
 function PageMitData(props) {
   const [data, setData] = useState([]);

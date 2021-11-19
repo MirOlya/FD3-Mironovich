@@ -1,70 +1,70 @@
 .PageLink {
-    color: black;
-    /* margin-right: 10px; */
-    /* background-color: #b6bec9;  */
-    height: 40px;
-    align-items: center;
-    text-align: center;
-    padding: 0 10px 0 10px;
+  color: black;
+  /* margin-right: 10px; */
+  /* background-color: #b6bec9;  */
+  height: 40px;
+  align-items: center;
+  text-align: center;
+  padding: 0 10px 0 10px;
 }
 
 .ActivePageLink {
-    font-weight: bold;
-    background-color:#859cb9;
+  font-weight: bold;
+  background-color: #859cb9;
 }
 
-.links{
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
-    flex: 1 1 100%;
+.links {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  flex: 1 1 100%;
 }
-.links_header{
-    place-content: center space-between;
-    align-items: center;
-    flex-direction: row;
-    display: flex;
-    background-color:#65758a;
-    height: 60px;
-    color:#fff;
+.links_header {
+  place-content: center space-between;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  background-color: #65758a;
+  height: 60px;
+  color: #fff;
 }
-.links_header button{
-    background-color:#65758a;
-    color:#fff;
-    border: none;
+.links_header button {
+  background-color: #65758a;
+  color: #fff;
+  border: none;
 }
 .links_header span {
-    padding: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
 }
-.links_header_small{
-    max-width: 100px;
-    place-content: center;
+.links_header_small {
+  max-width: 100px;
+  place-content: center;
 }
-.PageLinkSmall{
-    max-width: 100px;
-    display: flex;
-    align-items: center;
+.PageLinkSmall {
+  max-width: 100px;
+  display: flex;
+  align-items: center;
 }
-.links_small{
-    max-width: 100px;
+.links_small {
+  max-width: 100px;
 }
-.map_list{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.map_list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.map_nav{
-    padding: 0 10px 0 10px;
-    display: flex;
-    align-items: center;
-    height: 40px;
+.map_nav {
+  padding: 0 10px 0 10px;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
-.map_nav span{
-    padding-left: 10px;
+.map_nav span {
+  padding-left: 10px;
 }
 
-.maps_links{
-    display: flex;
-    background-color:#b6bec9;
-    /* overflow: hidden; */
+.maps_links {
+  display: flex;
+  background-color: #b6bec9;
+  /* overflow: hidden; */
 }

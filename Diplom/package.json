@@ -1,7 +1,7 @@
 {
-  "name": "mobile",
+  "name": "diplom",
   "version": "1.0.0",
-  "description": "мобильная компания",
+  "description": "Дипломнй проект",
   "main": "App.js",
   "scripts": {
     "build": ".\\node_modules\\.bin\\webpack",
@@ -23,12 +23,12 @@
     "jest": "^27.3.1",
     "lite-server": "^2.3.0",
     "react-test-renderer": "^17.0.2",
-    "ts-loader": "^3.1.1",
-    "typescript": "^2.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@material/tooltip": "^13.0.0",
