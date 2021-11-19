@@ -12,7 +12,7 @@ function PagesLinks(props) {
   const [collapsedMenu, setCollapsedMenu] = useState({
     matches: window.innerWidth < 768 ? true : false,
   });
-  const [collapsedMenuHand, setCollapsedMenuHand] = useState(true);
+  const [collapsedMenuHand, setCollapsedMenuHand] = useState(false);
 
   useEffect(() => {
     let mediaQuery = window.matchMedia("(max-width: 768px)");
