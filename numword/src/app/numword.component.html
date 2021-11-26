@@ -1,0 +1,13 @@
+<div class="numword">
+  <h3>Введите число яблок:</h3>
+  <!-- <input
+    type="text"
+    #apples
+    ([NgModule])="(num)"
+    (change)="myChange($event)"
+  /> -->
+
+  <input type="text" #apples (input)="num = myChange($event)" [value]="num" />
+
+  <div>{{ apples.value | numword: "яблоко":"яблока":"яблок" }}</div>
+</div>
