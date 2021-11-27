@@ -1,0 +1,8 @@
+div.sprite {
+  position: absolute;
+  border: double blue 3px;
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+  padding: 0 20px 10px 20px;
+}
