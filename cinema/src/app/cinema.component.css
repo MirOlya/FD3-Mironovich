@@ -1,0 +1,10 @@
+.Cinema {
+  /* width: 200px;
+  height: 200px; */
+  border: 1px double red;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

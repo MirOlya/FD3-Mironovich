@@ -1,0 +1,9 @@
+<div class="Hall">
+  <div>HALL</div>
+  <div
+    [ngClass]="pl.isFree ? 'Place' : 'PlaceBusy'"
+    *ngFor="let pl of getHall()"
+  >
+    {{ pl.num }}
+  </div>
+</div>

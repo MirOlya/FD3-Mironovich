@@ -1,0 +1,7 @@
+.Cash {
+  display: inline-flex;
+  margin: 10px;
+}
+.Cash input {
+  margin: 5px;
+}

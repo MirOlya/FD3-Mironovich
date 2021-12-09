@@ -1,0 +1,8 @@
+<div class="Cash">
+  <input
+    type="button"
+    [value]="getType() ? 'очная касса' : 'интернет-касса'"
+    (click)="buyTickets()"
+  />
+  <input type="text" [(ngModel)]="colTickets" />
+</div>
