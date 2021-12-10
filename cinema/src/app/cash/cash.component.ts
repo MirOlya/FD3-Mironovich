@@ -19,6 +19,12 @@ export class CashComponent {
   }
 
   buyTickets(): void {
-    if (this.myHall.buyTickets(this.colTickets)) this.colTickets = 0;
+    if (this.colTickets > 0) {
+      const isBuyTicket = this.myHall.buyTickets(this.colTickets);
+      if (isBuyTicket.length > 0) {
+        this.colTickets = 0;
+        alert('Купили места:' + isBuyTicket.join(','));
+      } else alert('недостаточно свободных мест!!!');
+    }
   }
 }
