@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { SpriteBgComponent } from './spriteBg.component';
+import { SpriteDirective } from './spriteBg.attr.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [SpriteBgComponent, SpriteDirective],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [SpriteBgComponent],
 })
-export class AppModule { }
+export class AppModule {}
