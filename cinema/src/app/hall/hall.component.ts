@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tickets } from '../tickets.service';
+import { TicketsEventsService } from '../tickets-events.service';
 
 @Component({
   selector: 'hall',
@@ -7,10 +8,17 @@ import { Tickets } from '../tickets.service';
   styleUrls: ['./hall.component.css'],
 })
 export class Hall implements OnInit {
-  constructor(private myHall: Tickets) {}
+  constructor(private myHall: Tickets, events: TicketsEventsService) {
+    events.getSubject().subscribe((arrBuy: Array<boolean>) => {
+      this.showBuyTicket(arrBuy);
+    });
+  }
 
   ngOnInit(): void {}
 
+  showBuyTicket(mas: Array<boolean>) {
+    console.log(mas);
+  }
   getHall() {
     return this.myHall.getArrTickets();
   }
